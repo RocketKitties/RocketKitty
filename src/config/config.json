@@ -1,0 +1,9 @@
+{
+	"servers": {
+		"api": "services/public/api",
+		"images": "images"
+	},
+	
+	"usePushState": false,
+	"debug": true
+}
