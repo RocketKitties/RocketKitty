@@ -10,6 +10,7 @@
 			"tablet": "auto",
 			"desktop": "auto"
 		},
+
 		"color_scheme": "colored",
 		"highlight_color": "hsl(-10, 90%, 66%)",
 		"accent_color": "hsl(200, 90%, 66%)",
@@ -33,10 +34,10 @@
 		"icon_unhighlight_effect": "none",
 		"icon_open_effect": "wobble",
 
-		"system_font": "Proxima Nova",
+		"system_font": "Bryant",
 		"title_font": null,
+		"label_font":  null,
 		"heading_font": null,
-		"label_font": null,
 		"font_size": "normal"
 	},
 

@@ -588,6 +588,10 @@ export default BaseView.extend({
 			this.toggleSideBar();
 		}
 
+		// play tap sound
+		//
+		application.play('tap');
+
 		// block event from parent
 		//
 		this.block(event);

@@ -1,12 +1,10 @@
-<p align="center">
-  <div align="center">
-    <img src="./images/logos/logo.svg" alt="Logo" style="width:25%">
-  </div>
+<p align="center" style="text-align:center">
+	<img src="images/logos/logo.svg" width="200">
 </p>
 
-# CloudKitty
+# RocketKitty
 
-CloudKitty is a web platform that allows uploading, managing, and sharing of data.  It combines file sharing and management with a social network and a variety of apps.  It provides an extensive set of tools for viewing, editing, and sharing data in an intuitive desktop-like user interface experience.
+RocketKitty is a web platform that allows uploading, managing, and sharing of data.  It combines file sharing and management with a social network and a variety of apps.  It provides an extensive set of tools for viewing, editing, and sharing data in an intuitive desktop-like user interface experience.
 
 ![Screen Shot](images/screen-shots/welcome.png)
 Welcome Screen
@@ -27,7 +25,7 @@ SQL is used for storing user, authentication, and academic information.
 
 ## Installation
 
-Please follow the instructions in [documentation/INSTALL.md](documentation/INSTALL.md) to install the software on your web server.   If you would like some pointers for configuring your web server, see:  [documentation/CONFIG.md](documentation/CONFIG.md).
+Please follow the instructions in [https://www.rocketkitty.org/#installation](https://www.rocketkitty.org/#installation) to install the software on your computer or web server.
 
 ## Using the Platform
 

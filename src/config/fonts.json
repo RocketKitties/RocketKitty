@@ -23,6 +23,12 @@
 		"font-weight": "normal",
 		"url": "fonts/bank-gothic/styles.css"
 	},
+	"Bryant": {
+		"font-family": "Bryant, sans-serif",
+		"font-size": 15,
+		"font-weight": "normal",
+		"url": "fonts/bryant/styles.css"
+	},
 	"Calibri": {
 		"font-family": "Calibri, sans-serif",
 		"font-size": 15,
@@ -64,12 +70,6 @@
 		"font-size": 15,
 		"font-weight": "normal",
 		"url": "fonts/din/styles.css"
-	},
-	"F18": {
-		"font-family": "F18, sans-serif",
-		"font-size": 14,
-		"font-weight": "normal",
-		"url": "fonts/f1.8/styles.css"
 	},
 	"FF Meta": {
 		"font-family": "FF Meta, sans-serif",
@@ -113,6 +113,12 @@
 		"font-weight": "normal",
 		"url": null
 	},
+	"Inter": {
+		"font-family": "Inter, sans-serif",
+		"font-size": 14,
+		"font-weight": "normal",
+		"url": "fonts/inter/styles.css"
+	},
 	"Lato": {
 		"font-family": "Lato, sans-serif",
 		"font-size": 14,
@@ -155,11 +161,11 @@
 		"font-weight": "normal",
 		"url": "fonts/proxima-nova/styles.css"
 	},
-	"Proxima Nova Light": {
-		"font-family": "Proxima Nova Light, sans-serif",
+	"Proxima Soft": {
+		"font-family": "Proxima Soft, sans-serif",
 		"font-size": 14,
 		"font-weight": "normal",
-		"url": "fonts/proxima-nova/styles.css"
+		"url": "fonts/proxima-soft/styles.css"
 	},
 	"PT Sans": {
 		"font-family": "PT Sans, sans-serif",

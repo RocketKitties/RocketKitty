@@ -5,9 +5,9 @@
 </ol>
 
 <div class="content">
-	<p><%= application.name %> is a complete family (clowder) of self-hostable cloud-based sharing platforms, each of which has been optimized for a particular application.</p>
+	<p><%= application.name %> is a complete family of self-hostable cloud-based data management and sharing platforms, each of which has been optimized for a particular application.</p>
 
-	<div class="attention"><div class="emphasis">Use <%= application.name %> to Launch Your Own Kitty</div></div>
+	<div class="attention"><div class="emphasis">Launch Your Own <%= application.name %>!</div></div>
 
 	<h2><i class="fa fa-paw"></i>The <%= application.name %> Family</h2>
 	<p>The <%= application.name %> family of self-hostable applications are designed to be friendly to use, easy to install, and to suit your most common data hosting and sharing needs: </p>

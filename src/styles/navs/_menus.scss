@@ -257,6 +257,12 @@ $rounded-divider-border-radius: 7px;
 	li {
 		padding: 0;
 
+		// hide divider if after first hidden item
+		//
+		&.hidden:first-child + .divider {
+			display: none;
+		}
+
 		> a {
 			cursor: pointer;
 			padding: 2px 5px;

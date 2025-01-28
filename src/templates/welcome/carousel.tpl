@@ -7,19 +7,19 @@
 				<tr>
 					<td style="background:hsl(220, 50%, 50%)">
 						<p class="hidden-xs">ChatKitty</p>
-						<a href="http://chatkitty.org">
+						<a href="http://chatkitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/chatkitty-icon.svg" />
 						</a>
 					</td>
 					<td style="background:hsl(220, 66%, 66%)">
 						<p class="hidden-xs">MapKitty</p>
-						<a href="http://mapkitty.org">
+						<a href="http://mapkitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/mapkitty-icon.svg" />
 						</a>
 					</td>
 					<td style="background:hsl(90, 50%, 60%)">
 						<p class="hidden-xs">DataKitty</p>
-						<a href="http://datakitty.org">
+						<a href="http://datakitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/datakitty-icon.svg" />
 						</a>
 					</td>
@@ -28,19 +28,19 @@
 				<tr>
 					<td style="background:hsl(40, 90%, 60%)">
 						<p class="hidden-xs">PhotoKitty</p>
-						<a href="http://photokitty.org">
+						<a href="http://photokitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/photokitty-icon.svg" />
 						</a>
 					</td>
 					<td style="background:hsl(25, 90%, 66%)">
 						<p class="hidden-xs">SourceKitty</p>
-						<a href="http://sourcekitty.org">
+						<a href="http://sourcekitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/sourcekitty-icon.svg" />
 						</a>
 					</td>
 					<td style="background:hsl(30, 25%, 50%)">
 						<p class="hidden-xs">FileKitty</p>
-						<a href="http://filekitty.org">
+						<a href="http://filekitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/filekitty-icon.svg" />
 						</a>
 					</td>
@@ -49,19 +49,19 @@
 				<tr>
 					<td style="background:hsl(0, 90%, 80%)">
 						<p class="hidden-xs">S3Kitty</p>
-						<a href="http://s3kitty.org">
+						<a href="http://s3kitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/s3kitty-icon.svg" />
 						</a>
 					</td>
 					<td style="background:hsl(300, 33%, 50%)">
 						<p class="hidden-xs">DreamKitty</p>
-						<a href="http://dreamkitty.org">
+						<a href="http://dreamkitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/dreamkitty-icon.svg" />
 						</a>
 					</td>
 					<td style="background:hsl(250, 33%, 60%)">
 						<p class="hidden-xs">MusicKitty</p>
-						<a href="http://musickitty.org">
+						<a href="http://musickitty.org" target="_blank">
 							<img class="bouncable icon" src="images/logos/kitties/musickitty-icon.svg" />
 						</a>
 					</td>
@@ -84,7 +84,7 @@
 
 		<div class="caption">
 			<img class="thumbnail" width="50px" src="images/logos/kitties/chatkitty-logo.svg" />
-			ChatKitty - Your Conversations, Your Cloud
+			<a href="http://chatkitty.org" target="_blank">ChatKitty</a> - Your Conversations, Your Cloud
 		</div>
 	</div>
 </div>
@@ -96,7 +96,7 @@
 
 		<div class="caption">
 			<img class="thumbnail"width="50px" src="images/logos/kitties/mapkitty-logo.svg" />
-			MapKitty - Your Maps, Your Cloud
+			<a href="http://mapkitty.org" target="_blank">MapKitty</a> - Your Maps, Your Cloud
 		</div>
 	</div>
 </div>
@@ -108,7 +108,7 @@
 
 		<div class="caption">
 			<img class="thumbnail" width="50px" src="images/logos/kitties/datakitty-logo.svg" />
-			DataKitty - Your Data, Your Cloud
+			<a href="http://datakitty.org" target="_blank">DataKitty</a> - Your Data, Your Cloud
 		</div>
 	</div>
 </div>
@@ -120,7 +120,7 @@
 
 		<div class="caption">
 			<img class="thumbnail" width="50px" src="images/logos/kitties/photokitty-logo.svg" />
-			PhotoKitty - Your Photos, Your Cloud
+			<a href="http://photokitty.org" target="_blank">PhotoKitty</a> - Your Photos, Your Cloud
 		</div>
 	</div>
 </div>
@@ -132,7 +132,7 @@
 
 		<div class="caption">
 			<img class="thumbnail" width="50px" src="images/logos/kitties/sourcekitty-logo.svg" />
-			SourceKitty - Your Code, Your Cloud
+			<a href="http://sourcekitty.org" target="_blank">SourceKitty</a> - Your Code, Your Cloud
 		</div>
 	</div>
 </div>
@@ -144,7 +144,7 @@
 
 		<div class="caption">
 			<img class="thumbnail" width="50px" src="images/logos/kitties/filekitty-logo.svg" />
-			FileKitty - Your Files, Your Cloud
+			<a href="http://filekitty.org" target="_blank">FileKitty</a> - Your Files, Your Cloud
 		</div>
 	</div>
 </div>
@@ -156,7 +156,7 @@
 
 		<div class="caption">
 			<img class="thumbnail" width="50px" src="images/logos/kitties/s3kitty-logo.svg" />
-			S3Kitty - Your Buckets, Your Cloud
+			<a href="http://s3kitty.org" target="_blank">S3Kitty</a> - Your Buckets, Your Cloud
 		</div>
 	</div>
 </div>
@@ -168,7 +168,7 @@
 
 		<div class="caption">
 			<img class="thumbnail" width="50px" src="images/logos/kitties/dreamkitty-logo.svg" />
-			DreamKitty - Your AI Images, Your Cloud
+			<a href="http://dreamkitty.org" target="_blank">DreamKitty</a> - Your AI Images, Your Cloud
 		</div>
 	</div>
 </div>
@@ -180,7 +180,7 @@
 
 		<div class="caption">
 			<img class="thumbnail" width="50px" src="images/logos/kitties/musickitty-logo.svg" />
-			MusicKitty - Your Music, Your Cloud
+			<a href="http://musickitty.org" target="_blank">MusicKitty</a> - Your Music, Your Cloud
 		</div>
 	</div>
 </div>

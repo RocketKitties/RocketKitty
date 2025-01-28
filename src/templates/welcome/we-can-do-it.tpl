@@ -58,14 +58,47 @@
 		</div>
 	</div>
 
+	<h2><i class="fa fa-users"></i>Who Cares?</h2>
+	<p>A growing number of people are concerned about our freedom and believe that the current state of tech infrastructure is a threat. Here's what others are saying...</p>
+
+	<div class="well text figure">
+		Today we face another software crisis, but it’s one we don’t talk about much. Only the largest, richest firms can afford to create connected applications. There is a cloud, but it’s proprietary. Our data and our knowledge is disappearing from our personal computers into clouds that we cannot access and with which we cannot compete. Who owns our social networks? It is like the mainframe-PC revolution in reverse.
+		<div class="attribution">
+			<div class="author">Pieter Hintjens</div> 
+			former president of the <a href="https://ffii.org/" target="_blank">Foundation for a Free Information Infrastructure</a>
+		</div>
+	</div>
+
+	<div class="well text figure">
+		Today’s big tech companies have too much power—too much power over our economy, our society, and our democracy.
+		<div class="attribution">
+			<div class="author">Elizabeth Warren</div>
+			United States senator from Massachusetts,
+			<a href="https://medium.com/@teamwarren/heres-how-we-can-break-up-big-tech-9ad9e0da324c">Here's how we can break up Big Tech</a>
+		</div>
+	</div>
+
+	<div class="well text figure">
+		We used to control our computers. Now our computers are used to control us. As a handful of giant, essentially unaccountable corporations concentrated more and more resources and power in fewer and fewer places, the people surrendered an unprecedented degree of control over the flow of information and lost sovereignty over their technology.
+		<div class="attribution">
+			<div class="author">Eron Wolf</div> 
+			founder of <a href="https://futo.org" target="_blank">FUTO.org</a>
+		</div>
+	</div>
+
+	<div class="well text figure">
+		 We can build, or architect, or code cyberspace to protect values that we believe are fundamental. Or we can build, or architect, or code cyberspace to allow those values to disappear. 
+		 <div class="attribution">
+		 	<div class="author">Lawrence Lessig</div> 
+		 	founder of <a href="https://creativecommons.org" target="_blank">Creative Commons</a>
+		 </div>
+	</div>
+
+	<br />
+
 	<div class="section">
 		<h2><i class="fa fa-play"></i>What Can You Do? </h2>
 		<p>If you care about any of these issues, then you should seriously consider looking into ways to opt out of the current tech giant controlled software and web services ecosystem. Fortunately, there are alternative options avaiable that are comparable and in many ways superior to than the solutions that everyone else uses.  It may take more effort to seek out these alternatives, but doing so provides benefits to you personally and also benefits to the world and community in which you live. </p>
-	</div>
-
-	<div class="well" style="width:75%; margin:auto">
-		Today we face another software crisis, but it’s one we don’t talk about much. Only the largest, richest firms can afford to create connected applications. There is a cloud, but it’s proprietary. Our data and our knowledge is disappearing from our personal computers into clouds that we cannot access and with which we cannot compete. Who owns our social networks? It is like the mainframe-PC revolution in reverse.
-		<div class="caption" style="text-align:right">-Pieter Hintjens</div>
 	</div>
 
 	<div class="section" style="margin-bottom:-40px">

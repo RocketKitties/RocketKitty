@@ -27,6 +27,8 @@ $nav-bar-brand-padding: 0 10px;
 $nav-bar-brand-min-width: 40px;
 $nav-bar-brand-logo-height: 20px;
 $indicator-bar-shadow: 1px 1px 5px rgba(black, 50%);
+$round-border-radius: 30px;
+$rounded-border-radius: 5px;
 
 //
 // styles
@@ -68,6 +70,14 @@ $indicator-bar-shadow: 1px 1px 5px rgba(black, 50%);
 				display: inline-block;
 				padding-top: 2px;
 				margin: auto;
+
+				&.round {
+					border-radius: $round-border-radius;
+				}
+
+				&.rounded {
+					border-radius: $rounded-border-radius;
+				}
 			}
 
 			.logo + .logotype {
