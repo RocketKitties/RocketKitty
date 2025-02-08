@@ -45,7 +45,7 @@ export default FooterView.extend({
 						<% if (branding.page.footer.brand.logotype.names) { %>
 						<% let names = branding.page.footer.brand.logotype.names; %>
 						<% let keys = Object.keys(names); %>
-						<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(/ /g, '&nbsp') %></span><% } %>
+						<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(' ', '&nbsp') %></span><% } %>
 						<% } %>
 					</div>
 					<% } %>

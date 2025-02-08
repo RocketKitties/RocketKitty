@@ -63,7 +63,7 @@ export default BaseView.extend({
 			</div>
 		</div>
 	`),
-	
+
 	//
 	// setting methods
 	//
@@ -77,12 +77,12 @@ export default BaseView.extend({
 		if (attributes.background) {
 			$(element).find('.branding').css({
 				background: attributes.background
-			});		
+			});
 		}
 		if (attributes.font) {
 			$(element).find('.branding').css({
 				'font-family': config.fonts[attributes.font]['font-family']
-			});	
+			});
 		}
 	},
 

@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                                validatable.js                                |
+|                               highlightable.js                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a form validating behavior.                              |
+|        This defines a highlighting behavior.                                 |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -15,56 +15,38 @@
 |        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import '../../../../vendor/jquery/validate/js/jquery.validate.js';
-
 export default {
 
 	//
-	// attributes
+	// getting methods
 	//
 
-	// this determines whether to revalidate on losing focus
-	//
-	onfocusout: undefined,
-
-	//
-	// validating methods
-	//
-
-	validate: function() {
-		this.validator = this.$el.validate({
-			rules: this.rules,
-			messages: this.messages,
-			onfocusout: this.onfocusout,
-			errorPlacement: this.errorPlacement
-		});
+	getActiveIndex: function() {
+		let tabs = this.$el.find('.tab');
+		let activeTab = this.$el.find('.active.tab');
+		return tabs.index(activeTab);
 	},
 
-	errorPlacement: function ($error, $element) {
-		if ($element.closest('.input-group').length > 0) {
-			$element.closest('.input-group').after($error);
-		} else {
-			$element.append($error);
+	//
+	// setting methods
+	//
+
+	setActiveIndex: function(index) {
+		let tabs = this.$el.find('.tab');
+		let panes = this.$el.find('.tab-pane');
+
+		if (tabs.length < index - 1) {
+			return;
 		}
-	},
 
-	isValid: function() {
-		if (this.validator) {
-			// return this.validator.checkForm();
-			return this.validator.form();
-		} else {
-			return true;
-		}
-	},
-
-	check: function() {
-
-		// trigger form updates
+		// set active tab
 		//
-		if (this.validator) {
-			return this.validator.form();
-		} else {
-			return true;
-		}
-	}
+		tabs.removeClass('active');
+		$(tabs[index]).addClass('active');
+
+		// set active pane
+		//
+		panes.removeClass('active');
+		$(panes[index]).addClass('active');
+	},
 };

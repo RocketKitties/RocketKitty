@@ -125,6 +125,7 @@ export default UserSettings.extend({
 		this.applyIconTilt(this.get('icon_tilt'));
 		this.applyIconTint(this.get('icon_tint'));
 		this.applyIconBackground(this.get('icon_background'));
+		this.applyIconSpinning(this.get('icon_spinning'));
 
 		// apply text styles
 		//
@@ -157,7 +158,7 @@ export default UserSettings.extend({
 		if (theme == 'auto') {
 			theme = Browser.isDarkModeEnabled()? 'dark' : 'medium';
 		}
-
+		
 		// load theme, if necessary
 		//
 		if (theme) {
@@ -386,7 +387,7 @@ export default UserSettings.extend({
 			case 'square':
 				$('body').removeClass('round');
 				$('body').removeClass('rounded');
-				$('body').addClass('square');
+				$('body').addClass('square');	
 				break;
 		}
 	},
@@ -450,7 +451,7 @@ export default UserSettings.extend({
 		this.removeIconTint();
 		if (iconTint && iconTint != 'none') {
 			$('body').addClass('tinted');
-			$('body').addClass(iconTint + '-tinted');
+			$('body').addClass(iconTint + '-tinted');			
 		}
 	},
 
@@ -459,6 +460,14 @@ export default UserSettings.extend({
 			$('body').addClass('icon-backgrounds');
 		} else {
 			$('body').removeClass('icon-backgrounds');
+		}
+	},
+
+	applyIconSpinning: function(iconSpinning) {
+		if (iconSpinning && iconSpinning != 'none') {
+			$('body').addClass('icon-spinning');
+		} else {
+			$('body').removeClass('icon-spinning');
 		}
 	},
 
@@ -557,7 +566,7 @@ export default UserSettings.extend({
 
 		// check for font and selector
 		//
-		if (!headingFont || (headingFont == 'none') || !config.defaults.text || !config.defaults.text.headings) {
+		if (!headingFont || (headingFont == 'none') || !config.defaults.selectors || !config.defaults.selectors.headings) {
 			return;
 		}
 
@@ -570,7 +579,7 @@ export default UserSettings.extend({
 
 		// add new selector style rules
 		//
-		$(CssUtils.addCssRule(config.defaults.text.headings.join(', '), {
+		$(CssUtils.addCssRule(config.defaults.selectors.headings.join(', '), {
 			'font-family': this.getFontFamily(headingFont)
 		})).addClass('heading-font-css');
 	},
@@ -589,7 +598,7 @@ export default UserSettings.extend({
 
 		// check for font and selector
 		//
-		if (!titleFont || (titleFont == 'none') || !config.defaults.text || !config.defaults.text.titles) {
+		if (!titleFont || (titleFont == 'none') || !config.defaults.selectors || !config.defaults.selectors.titles) {
 			return;
 		}
 
@@ -602,7 +611,7 @@ export default UserSettings.extend({
 
 		// add new selector style rules
 		//
-		$(CssUtils.addCssRule(config.defaults.text.titles.join(', '), {
+		$(CssUtils.addCssRule(config.defaults.selectors.titles.join(', '), {
 			'font-family': this.getFontFamily(titleFont),
 			'font-size': this.getFontSize(titleFont, fontSize),
 			'font-weight': this.getFontWeight(titleFont)
@@ -623,7 +632,7 @@ export default UserSettings.extend({
 
 		// check for font and selector
 		//
-		if (!labelFont || (labelFont == 'none') || !config.defaults.text || !config.defaults.text.labels) {
+		if (!labelFont || (labelFont == 'none') || !config.defaults.selectors || !config.defaults.selectors.labels) {
 			return;
 		}
 
@@ -636,7 +645,7 @@ export default UserSettings.extend({
 
 		// add new selector style rules
 		//
-		$(CssUtils.addCssRule(config.defaults.text.labels.join(', '), {
+		$(CssUtils.addCssRule(config.defaults.selectors.labels.join(', '), {
 			'font-family': this.getFontFamily(labelFont),
 			'font-size': this.getFontSize(labelFont, fontSize),
 			'font-weight': this.getFontWeight(labelFont)

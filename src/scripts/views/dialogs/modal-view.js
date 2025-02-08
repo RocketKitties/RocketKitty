@@ -187,10 +187,6 @@ export default BaseView.extend(_.extend({}, Positionable, Draggable, Stackable, 
 		if (this.options.opener) {
 			this.options.opener.blur();
 		}
-
-		// play open sound
-		//
-		application.play('open');
 	},
 
 	//
@@ -216,10 +212,6 @@ export default BaseView.extend(_.extend({}, Positionable, Draggable, Stackable, 
 		} else {
 			this.$el.addClass('zooming-from');
 		}
-
-		// play close sound
-		//
-		application.play('close');
 
 		this.setTimeout(() => {
 			this.destroy();
@@ -253,13 +245,11 @@ export default BaseView.extend(_.extend({}, Positionable, Draggable, Stackable, 
 
 		// set window size
 		//
-		if (this.size) {
-			if (this.size[0]) {
-				this.$el.find('.modal-dialog').css('width', this.size[0] + 'px');
-			}
-			if (this.size[1]) {
-				this.$el.find('.modal-dialog').css('height', this.size[1] + 'px');
-			}
+		if (this.width) {
+			this.$el.find('.modal-dialog').css('width', this.width + 'px');
+		}
+		if (this.height) {
+			this.$el.find('.modal-dialog').css('height', this.height + 'px');
 		}
 
 		// set dialog maximum height

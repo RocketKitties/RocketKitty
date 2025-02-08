@@ -120,10 +120,6 @@ export default {
 				})
 			);
 
-			// play minimize sound
-			//
-			application.play('minimize');
-
 			// focus top dialog or desktop
 			//
 			if (!modals.isEmpty()) {
@@ -206,10 +202,6 @@ export default {
 					this.$el.removeClass('fading-in');
 					break;
 			}
-
-			// play restore sound
-			//
-			application.play('restore');
 
 			// perform callback
 			//

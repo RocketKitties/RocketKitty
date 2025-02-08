@@ -114,30 +114,6 @@ export default {
 	// setting methods
 	//
 
-	setWidth: function(width) {
-		this.$el.find('.modal-dialog').css({
-			width: width
-		});
-
-		this.$el.find('.modal-dialog').prop('style').setProperty('width', width);
-
-		// respond to resize
-		//
-		this.onResize();
-	},
-
-	setHeight: function(height) {
-		this.$el.find('.modal-dialog').css({
-			height: height
-		});
-
-		this.$el.find('.modal-dialog').prop('style').setProperty('width', height);
-
-		// respond to resize
-		//
-		this.onResize();
-	},
-
 	setSize: function(size) {
 
 		this.$el.find('.modal-dialog').css({
@@ -248,17 +224,12 @@ export default {
 		}
 	},
 
-	onResize: function() {
-		let width = this.getWidth();
-		let height = this.getHeight();
+	onResize: function(event) {
 
-		// check for min sizes
+		// perform callback
 		//
-		if (this.min_size && this.min_size[0] && width < this.min_size[0]) {
-			this.setWidth(this.min_size[0]);
-		}
-		if (this.min_size && this.min_size[1] && height < this.min_size[1]) {
-			this.setHeight(this.min_size[1]);
+		if (this.options.onResize) {
+			this.options.onResize(event);
 		}
 	},
 

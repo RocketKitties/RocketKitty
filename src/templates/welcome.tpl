@@ -59,7 +59,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://chatkitty.org" target="_blank">
-					<img src="images/logos/clouds/chatkitty-cloud-icon.svg" style="background:hsl(220, 50%, 50%)" />
+					<div class="attention" style="background:hsl(220, 50%, 50%)">
+						<img src="images/logos/clouds/chatkitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption">
 					<a href="http://chatkitty.org" target="_blank">ChatKitty</a> - Your Conversations, Your Cloud
@@ -78,7 +80,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://mapkitty.org" target="_blank">
-					<img src="images/logos/clouds/mapkitty-cloud-icon.svg" style="background:hsl(220, 66%, 66%)" />
+					<div class="attention" style="background:hsl(220, 66%, 66%)">
+						<img src="images/logos/clouds/mapkitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption">
 					<a href="http://mapkitty.org" target="_blank">MapKitty</a> - Your Geodata, Your Cloud
@@ -97,7 +101,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://datakitty.org" target="_blank">
-					<img src="images/logos/clouds/datakitty-cloud-icon.svg" style="background:hsl(90, 50%, 60%)" />
+					<div class="attention" style="background:hsl(90, 50%, 60%)">
+						<img src="images/logos/clouds/datakitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption">
 					<a href="http://datakitty.org" target="_blank">DataKitty</a> - Your Data, Your Cloud
@@ -116,7 +122,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://photokitty.org" target="_blank">
-					<img src="images/logos/clouds/photokitty-cloud-icon.svg" style="background:hsl(40, 90%, 60%)" />
+					<div class="attention" style="background:hsl(40, 90%, 60%)">
+						<img src="images/logos/clouds/photokitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption">
 					<a href="http://photokitty.org" target="_blank">PhotoKitty</a> - Your Photos, Your Cloud
@@ -135,7 +143,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://sourcekitty.org" target="_blank">
-					<img src="images/logos/clouds/sourcekitty-cloud-icon.svg" style="background:hsl(25, 100%, 66%)" />
+					<div class="attention" style="background:hsl(25, 100%, 66%)">
+						<img src="images/logos/clouds/sourcekitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption">
 					<a href="http://sourcekitty.org" target="_blank">SourceKitty</a> - Your Code, Your Cloud
@@ -154,7 +164,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://filekitty.org" target="_blank">
-					<img src="images/logos/clouds/filekitty-cloud-icon.svg" style="background:hsl(30, 25%, 50%)" />
+					<div class="attention" style="background:hsl(30, 25%, 50%)">
+						<img src="images/logos/clouds/filekitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption">
 					<a href="http://filekitty.org" target="_blank">FileKitty</a> - Your Files, Your Cloud
@@ -173,7 +185,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://s3kitty.org" target="_blank">
-					<img src="images/logos/clouds/s3kitty-cloud-icon.svg" style="background:hsl(0, 100%, 75%)" />
+					<div class="attention" style="background:hsl(0, 100%, 75%)">
+						<img src="images/logos/clouds/s3kitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption"><a href="http://s3kitty.org" target="_blank">S3Kitty</a> - Your Buckets, Your Cloud</div>
 			</div>
@@ -190,7 +204,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://dreamkitty.org" target="_blank">
-					<img src="images/logos/clouds/dreamkitty-cloud-icon.svg" style="background:hsl(300, 33%, 50%)" />
+					<div class="attention" style="background:hsl(300, 33%, 50%)">
+						<img src="images/logos/clouds/dreamkitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption">
 					<a href="http://dreamkitty.org" target="_blank">DreamKitty</a> - Your AI Images, Your Cloud
@@ -209,7 +225,9 @@
 		<div class="col-sm-6">
 			<div class="figure">
 				<a href="http://musickitty.org" target="_blank">
-					<img src="images/logos/clouds/musickitty-cloud-icon.svg" style="background:hsl(250, 33%, 60%)" />
+					<div class="attention" style="background:hsl(250, 33%, 60%)">
+						<img src="images/logos/clouds/musickitty-cloud-icon.svg" />
+					</div>
 				</a>
 				<div class="caption">
 					<a href="http://musickitty.org" target="_blank">MusicKitty</a> - Your Music, Your Cloud
