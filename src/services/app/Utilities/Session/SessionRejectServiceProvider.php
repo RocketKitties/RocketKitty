@@ -4,7 +4,7 @@ namespace App\Utilities\Session;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Config;
-use App\Http\Filters\FiltersHelper;
+use App\Utilities\Filters\FiltersHelper;
 
 /** Code taken from
 http://stackoverflow.com/questions/26473106/prevent-sessions-for-routes-in-laravel-custom-on-demand-session-handling#26473856

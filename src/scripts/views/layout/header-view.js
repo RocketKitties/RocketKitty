@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import '../../../vendor/bootstrap/js/collapse.js';
@@ -42,7 +42,7 @@ export default BaseView.extend({
 						<div class="logotype">
 							<% if (branding.header.brand.logotype.names) { %>
 							<% let keys = Object.keys(branding.header.brand.logotype.names); %>
-							<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(' ', '&nbsp') %></span><% } %>
+							<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(/ /g, '&nbsp') %></span><% } %>
 							<% } %>
 						</div>
 						<% } %>
@@ -69,15 +69,24 @@ export default BaseView.extend({
 				</ul>
 				<% } %>
 
-				<ul class="nav navbar-nav navbar-right">
+				<ul class="navbar-nav navbar-right hidden-xs">
 					<div class="navbar-form">
-						<li class="buttons">
-							<% if (show_theme) { %>
-							<button id="theme" class="btn btn-sm" data-toggle="tooltip" title="<%= theme.toTitleCase() %> Theme" data-placement="left">
-								<%= theme_icon %>
+						<div class="buttons">
+							<% let buttons = branding.header.buttons; %>
+							<% let keys = Object.keys(buttons); %>
+
+							<% if (show_sign_in) { %>
+							<button class="sign-in btn btn-lg btn-primary">
+								<i class="<%= buttons[keys[0]].icon %>"></i><%= keys[0] %>
 							</button>
 							<% } %>
-						</li>
+
+							<% if (show_sign_up) { %>
+							<button class="sign-up btn btn-lg">
+								<i class="<%= buttons[keys[1]].icon %>"></i><%= keys[1] %>
+							</button>
+							<% } %>
+						</div>
 					</div>
 				</ul>
 			</div>
@@ -86,7 +95,8 @@ export default BaseView.extend({
 
 	events: {
 		'click .brand': 'onClickBrand',
-		'click #theme': 'onClickTheme'
+		'click .sign-in': 'onClickSignIn',
+		'click .sign-up': 'onClickSignUp',
 	},
 
 	//
@@ -121,32 +131,6 @@ export default BaseView.extend({
 	},
 
 	//
-	// getting methods
-	//
-
-	getNextTheme: function(theme) {
-		switch (theme) {
-			case 'auto':
-				return 'light';
-			case 'light':
-				return 'dark';
-			case 'dark':
-				return 'auto';
-		}
-	},
-
-	getThemeIcon: function(theme) {
-		switch (theme) {
-			case 'light':
-				return '<i class="fa fa-sun"></i>';
-			case 'dark':
-				return '<i class="fa fa-moon"></i>';
-			default:
-				return '<i class="fa fa-circle-half-stroke"></i>';
-		}
-	},
-
-	//
 	// setting methods
 	//
 
@@ -175,6 +159,9 @@ export default BaseView.extend({
 		}
 		if (header.height) {
 			this.$el.css('min-height', header.height);
+		}
+		if (header.align == 'center') {
+			this.$el.addClass('center-aligned');
 		}
 	},
 
@@ -209,7 +196,7 @@ export default BaseView.extend({
 
 		// set logotype styles
 		//
-		DomUtils.setTextBlockStyles(this.$el.find('.brand'), logotype);
+		DomUtils.setTextBlockStyles(this.$el.find('.logotype'), logotype);
 
 		// set logotype name styles
 		//
@@ -303,23 +290,17 @@ export default BaseView.extend({
 	//
 
 	templateContext: function() {
-		let theme = application.getTheme();
 		return {
 			defaults: config.defaults,
 			branding: config.branding,
 			nav: this.options.nav,
-			show_theme: config.branding.header.buttons.show_theme,
-			theme: theme,
-			theme_icon: this.getThemeIcon(theme),
+			show_sign_in: application.session.has('config'),
+			show_sign_up: application.session.has('config')? application.session.get('config').sign_up_enabled : false,
 			is_mobile: Browser.is_mobile
 		};
 	},
 
 	onRender: function() {
-
-		// add tooltip triggers
-		//
-		this.addTooltips();
 
 		// apply custom styles
 		//
@@ -338,27 +319,12 @@ export default BaseView.extend({
 		});
 	},
 
-	onClickTheme: function() {
-		let theme = this.getNextTheme(application.getTheme());
-		let themeIcon = this.getThemeIcon(theme);
-		let themeTooltip = theme.toTitleCase() + ' Theme';
+	onClickSignIn: function() {
+		application.signIn();
+	},
 
-		// update theme attributes
-		//
-		this.$el.find('#theme').empty().html(themeIcon);
-		this.$el.find('#theme').attr('data-original-title', themeTooltip);
-
-		// update currently displayed tooltip
-		//
-		$('.tooltip .tooltip-inner').text(themeTooltip);
-
-		// save value for later
-		//
-		localStorage.setItem('theme', theme);
-
-		// update view
-		//
-		application.setTheme(theme);
+	onClickSignUp: function() {
+		application.signUp();
 	},
 
 	//

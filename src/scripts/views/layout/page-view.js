@@ -12,15 +12,17 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
+import ThemeSettings from '../../models/settings/theme-settings.js';
 import BaseView from '../../views/base-view.js';
+import Wallpaperable from '../../views/behaviors/effects/wallpaperable.js';
 import PageFooterView from '../../views/layout/page-footer-view.js';
 import DomUtils from '../../utilities/web/dom-utils.js';
 import Browser from '../../utilities/web/browser.js';
 
-export default BaseView.extend({
+export default BaseView.extend(_.extend({}, Wallpaperable, {
 
 	//
 	// attributes
@@ -126,7 +128,23 @@ export default BaseView.extend({
 		// set page font
 		//
 		if (page.font) {
-			DomUtils.setFont(this.$el.find('> .contents'), page.font);
+			let selector = '> .contents > .content';
+			if (config.defaults.text.content) {
+				selector = selector + ' ' + config.defaults.text.content.join(', ');
+			}
+			DomUtils.setFont(this.$el.find(selector), page.font);
+		}
+
+		// if user not logged in then set page styles
+		//
+		if (!application.session.user) {
+			if (page.background) {
+				this.$el.css('background', page.background);
+			}
+			if (page.theme) {
+				this.$el.addClass(page.theme);
+				ThemeSettings.loadTheme(page.theme);	
+			}
 		}
 	},
 
@@ -294,4 +312,4 @@ export default BaseView.extend({
 			this.getChildView('contents').onResize(event);
 		}
 	}
-});
+}));

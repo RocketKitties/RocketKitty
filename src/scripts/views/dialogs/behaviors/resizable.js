@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import '../../../../vendor/jquery/jquery-ui/js/plugins/resizable.js';
@@ -113,6 +113,30 @@ export default {
 	//
 	// setting methods
 	//
+
+	setWidth: function(width) {
+		this.$el.find('.modal-dialog').css({
+			width: width
+		});
+
+		this.$el.find('.modal-dialog').prop('style').setProperty('width', width);
+
+		// respond to resize
+		//
+		this.onResize();
+	},
+
+	setHeight: function(height) {
+		this.$el.find('.modal-dialog').css({
+			height: height
+		});
+
+		this.$el.find('.modal-dialog').prop('style').setProperty('width', height);
+
+		// respond to resize
+		//
+		this.onResize();
+	},
 
 	setSize: function(size) {
 
@@ -224,12 +248,17 @@ export default {
 		}
 	},
 
-	onResize: function(event) {
+	onResize: function() {
+		let width = this.getWidth();
+		let height = this.getHeight();
 
-		// perform callback
+		// check for min sizes
 		//
-		if (this.options.onResize) {
-			this.options.onResize(event);
+		if (this.min_size && this.min_size[0] && width < this.min_size[0]) {
+			this.setWidth(this.min_size[0]);
+		}
+		if (this.min_size && this.min_size[1] && height < this.min_size[1]) {
+			this.setHeight(this.min_size[1]);
 		}
 	},
 

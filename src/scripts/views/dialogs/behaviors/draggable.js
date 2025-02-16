@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import '../../../../vendor/jquery/jquery-ui/js/plugins/draggable.js';
@@ -196,6 +196,10 @@ export default {
 		if (this.isContained(event) == false) {
 			this.onDragOut(event);
 
+			// play error sound
+			//
+			application.play('error');
+
 		// snap window to tile bounds if shift key is down
 		//
 		} else if (this.snapping && event.shiftKey) {
@@ -218,14 +222,6 @@ export default {
 					this.resetSize();
 				}
 			}
-		}
-
-		// reset window height
-		//
-		if (!this.options.height) {
-			this.$el.find('.modal-dialog').css({
-				'height': ''
-			});
 		}
 
 		// remove modal overlay

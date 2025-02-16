@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import Dialog from '../../../models/dialogs/dialog.js';
@@ -120,6 +120,10 @@ export default {
 				})
 			);
 
+			// play minimize sound
+			//
+			application.play('minimize');
+
 			// focus top dialog or desktop
 			//
 			if (!modals.isEmpty()) {
@@ -202,6 +206,10 @@ export default {
 					this.$el.removeClass('fading-in');
 					break;
 			}
+
+			// play restore sound
+			//
+			application.play('restore');
 
 			// perform callback
 			//

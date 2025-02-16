@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import FooterView from '../../views/layout/footer-view.js';
@@ -45,7 +45,7 @@ export default FooterView.extend({
 						<% if (branding.page.footer.brand.logotype.names) { %>
 						<% let names = branding.page.footer.brand.logotype.names; %>
 						<% let keys = Object.keys(names); %>
-						<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(' ', '&nbsp') %></span><% } %>
+						<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(/ /g, '&nbsp') %></span><% } %>
 						<% } %>
 					</div>
 					<% } %>

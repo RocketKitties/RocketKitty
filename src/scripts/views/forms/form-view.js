@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import BaseView from '../../views/base-view.js';
@@ -152,7 +152,9 @@ export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, UnitSe
 
 		// create form validator
 		//
-		this.validate();
+		if (!this.validator) {
+			this.validate();
+		}
 	},
 
 	onAttach: function() {

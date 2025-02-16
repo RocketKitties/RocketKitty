@@ -1,0 +1,50 @@
+{
+	"items": [
+		{
+			"class": "sort-by-name",
+			"icon": "fa fa-font",
+			"name": "By Name",
+			"state": "unselected"
+		},
+		"divider",
+		{
+			"class": "sort-by-members",
+			"icon": "fa fa-users",
+			"name": "By Members",
+			"state": "unselected"
+		},
+		{
+			"class": "sort-by-date",
+			"icon": "fa fa-calendar-alt",
+			"name": "By Date",
+			"state": "unselected",
+			"menu": [
+				{
+					"class": "sort-by-create-date",
+					"icon": "fa fa-magic",
+					"name": "Create Date",
+					"state": "unselected"
+				},
+				{
+					"class": "sort-by-modify-date",
+					"icon": "fa fa-edit",
+					"name": "Modify Date",
+					"state": "unselected"
+				}
+			]
+		},
+		"divider",
+		{
+			"class": "sort-increasing",
+			"icon": "fa fa-sort-amount-up",
+			"name": "Increasing",
+			"state": "unselected"
+		},
+		{
+			"class": "sort-decreasing",
+			"icon": "fa fa-sort-amount-down",
+			"name": "Decreasing",
+			"state": "unselected"
+		}
+	]
+}

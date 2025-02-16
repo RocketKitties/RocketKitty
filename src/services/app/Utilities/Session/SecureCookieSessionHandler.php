@@ -21,9 +21,6 @@ class SecureCookieSessionHandler implements \SessionHandlerInterface
 	 */
 	protected $request;
 
-	//
-	// constructor
-	//
 
 	/**
 	 * Create a new cookie driven handler instance.
@@ -37,10 +34,6 @@ class SecureCookieSessionHandler implements \SessionHandlerInterface
 		$this->cookie = $cookie;
 		$this->minutes = $minutes;
 	}
-
-	//
-	// methods
-	//
 
 	/**
 	 * {@inheritDoc}

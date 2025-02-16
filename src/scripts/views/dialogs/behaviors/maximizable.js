@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import Browser from '../../../utilities/web/browser.js';
@@ -115,6 +115,10 @@ export default {
 		//
 		if (!options || !options.silent) {
 			this.onResize();
+
+			// play maximize sound
+			//
+			application.play('maximize');
 		}
 
 		// perform callback
@@ -160,6 +164,10 @@ export default {
 		//
 		if (!options || !options.silent) {
 			this.onResize();
+
+			// play restore sound
+			//
+			application.play('restore');
 		}
 
 		// remove overlay controls / collapse button
