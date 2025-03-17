@@ -4,16 +4,16 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a notification dialog that is used to show a             |
-|        progress dialog box.                                                  |
+|       This defines a notification dialog that is used to show a              |
+|       progress dialog box.                                                   |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import DialogView from '../../../views/dialogs/dialog-view.js';
@@ -35,7 +35,7 @@ export default DialogView.extend({
 						<% if (icon) { %>
 						<%= icon %>
 						<% } else { %>
-						<i class="fa fa-spinner spinning"></i>
+						<i class="fa fa-spinner"></i>
 						<% } %>
 					</div>
 					<div class="title">

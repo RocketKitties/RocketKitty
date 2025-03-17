@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines an abstract base class for form views.                   |
+|       This defines an abstract base class for form views.                    |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import BaseView from '../../views/base-view.js';
@@ -152,9 +152,7 @@ export default BaseView.extend(_.extend({}, PopoverShowable, Validatable, UnitSe
 
 		// create form validator
 		//
-		if (!this.validator) {
-			this.validate();
-		}
+		this.validate();
 	},
 
 	onAttach: function() {

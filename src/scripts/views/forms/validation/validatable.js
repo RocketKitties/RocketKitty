@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a form validating behavior.                              |
+|       This defines a form validating behavior.                               |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import '../../../../vendor/jquery/validate/js/jquery.validate.js';
@@ -25,7 +25,7 @@ export default {
 
 	// this determines whether to revalidate on losing focus
 	//
-	onfocusout: false,
+	onfocusout: undefined,
 
 	//
 	// validating methods
@@ -50,10 +50,8 @@ export default {
 
 	isValid: function() {
 		if (this.validator) {
-
-			// check form without showing errors
-			//
-			return this.validator.checkForm();
+			// return this.validator.checkForm();
+			return this.validator.form();
 		} else {
 			return true;
 		}
@@ -64,9 +62,6 @@ export default {
 		// trigger form updates
 		//
 		if (this.validator) {
-
-			// validate form and show errors
-			//
 			return this.validator.form();
 		} else {
 			return true;

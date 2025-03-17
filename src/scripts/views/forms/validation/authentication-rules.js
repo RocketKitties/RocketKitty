@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This is collection of form validation rules.                          |
+|       This is collection of form validation rules.                           |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import '../../../../vendor/jquery/validate/js/jquery.validate.js';

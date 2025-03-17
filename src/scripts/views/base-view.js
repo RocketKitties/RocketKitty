@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines an abstract base class for creating views.               |
+|       This defines an abstract base class for creating views.                |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import '../../library/backbone/backbone.js';
@@ -112,10 +112,6 @@ export default Marionette.View.extend(_.extend({}, Boundable, Hideable, Hierarch
 		// attach child to parent
 		//
 		view.parent = this;
-
-		// set region name
-		//
-		view.region_name = name;
 
 		// call superclass method
 		//

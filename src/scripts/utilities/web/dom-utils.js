@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This contains minor general purpose DOM manipulation utilities.       |
+|       This contains minor general purpose DOM manipulation utilities.        |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 export default {
@@ -41,7 +41,7 @@ export default {
 			$(element).css('background-position', attributes.background_position);
 		}
 		if (attributes.background_repeat) {
-			$(element).css('background-repeat', attributes.background_repeat.replace(/_/g, '-'));
+			$(element).css('background-repeat', attributes.background_repeat.replace('_', '-'));
 		}
 		if (attributes.background_attachment) {
 			$(element).css('background-attachment', attributes.background_attachment);

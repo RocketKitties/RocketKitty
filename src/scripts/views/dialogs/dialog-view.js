@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a base class for displaying non-modal dialogs.           |
+|       This defines a base class for displaying non-modal dialogs.            |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import ModalView from '../../views/dialogs/modal-view.js';
@@ -137,7 +137,7 @@ export default ModalView.extend(_.extend({}, Resizable, Minimizable, Maximizable
 	},
 
 	//
-	// button adding methods
+	// rendering methods
 	//
 
 	addLeftButtons: function() {
@@ -158,10 +158,6 @@ export default ModalView.extend(_.extend({}, Resizable, Minimizable, Maximizable
 		this.addLeftButtons();
 		this.addRightButtons();
 	},
-
-	//
-	// rendering methods
-	//
 
 	onRender: function() {
 
@@ -228,40 +224,6 @@ export default ModalView.extend(_.extend({}, Resizable, Minimizable, Maximizable
 				});
 			}
 		}
-	},
-
-	showChildApp: function(appName, options) {
-		application.loadResources(appName, {
-
-			// callbacks
-			//
-			success: (resources) => {
-				application.loadAppView(appName, {
-
-					// callbacks
-					//
-					success: (AppView) => {
-
-						// create new view
-						//
-						let view = new AppView(_.extend({
-							dialog: this,
-							hidden: {
-								'footer-bar': true
-							},
-						}, options));
-
-						// set app attributes
-						//
-						view.constructor.resources = resources;
-
-						// render app
-						//
-						this.showChildView(appName, view);
-					}
-				});
-			}
-		});
 	},
 
 	//

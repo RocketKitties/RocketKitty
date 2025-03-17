@@ -4,21 +4,17 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the initial welcome view of the application.             |
+|       This defines the initial welcome view of the application.              |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
-import ImageFile from '../../models/storage/media/image-file.js';
-import VideoFile from '../../models/storage/media/video-file.js';
-import Directory from '../../models/storage/directories/directory.js';
-import UserPreferences from '../../models/preferences/user-preferences.js';
 import BaseView from '../../views/base-view.js';
 import CrawlerView from '../../views/welcome/crawler-view.js';
 import ScrollerView from '../../views/welcome/scroller-view.js';
@@ -39,7 +35,7 @@ export default BaseView.extend({
 				<div class="carousel-cell">
 					<div class="background"></div>
 					<div class="full-size overlay"></div>
-
+				
 					<div class="splash">
 						<svg class="defs">
 							<defs>
@@ -63,7 +59,7 @@ export default BaseView.extend({
 							<% if (branding.welcome.splash.brand.logotype.names) { %>
 							<% let names = branding.welcome.splash.brand.logotype.names; %>
 							<% let keys = Object.keys(names); %>
-							<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(/ /g, '&nbsp') %></span><% } %>
+							<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(' ', '&nbsp') %></span><% } %>
 							<% } %>
 						</div>
 						<% if (branding.welcome.splash.brand.logotype.href) { %></a><% } %>
@@ -107,18 +103,6 @@ export default BaseView.extend({
 								<i class="fa fa-video"></i>View Video
 							</button>
 							<% } %>
-							<div class="visible-xs">
-								<% if (show_sign_in) { %>
-								<button class="sign-in btn btn-primary btn-lg">
-									<i class="fa fa-chevron-right"></i>Sign In
-								</button>
-								<% } %>
-								<% if (show_sign_up) { %>
-								<button class="sign-up btn btn-lg">
-									<i class="fa fa-pencil-alt"></i>Sign Up!
-								</button>
-								<% } %>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -151,12 +135,14 @@ export default BaseView.extend({
 	},
 
 	events: {
-		'click .logo': 'onClickLogo',
 		'click .show-video': 'onClickShowVideo',
 		'click .sign-in': 'onClickSignIn',
 		'click .sign-up': 'onClickSignUp',
-		'click .search .btn': 'onClickSearch'
+		'click .search .btn': 'onClickSearch',
+		'mouseover .bouncable': 'onMouseOverBounceable'
 	},
+
+	dynamicStyles: null,
 
 	//
 	// constructor
@@ -211,16 +197,6 @@ export default BaseView.extend({
 	//
 	// getting methods
 	//
-
-	getImageUrls: function(paths) {
-		let urls = [];
-		for (let i = 0; i < paths.length; i++) {
-			urls.push(new ImageFile({
-				path: paths[i]
-			}).getUrl());
-		}
-		return urls;
-	},
 
 	getLogoTypeLength: function(logotype) {
 		let length = 0;
@@ -352,9 +328,7 @@ export default BaseView.extend({
 			defaults: config.defaults,
 			branding: config.branding,
 			filters: this.options.filters,
-			show_video: config.branding.welcome.video != undefined,
-			show_sign_in: application.session.has('config'),
-			show_sign_up: application.session.has('config')? application.session.get('config').sign_up_enabled : false
+			show_video: config.welcome && config.welcome.options.view_video && config.welcome.options.view_video.enabled
 		};
 	},
 
@@ -433,30 +407,6 @@ export default BaseView.extend({
 		}
 		if (welcome.overlay) {
 			this.showOverlay(this.$el.find('.masthead > .overlay'), welcome.overlay);
-		}
-	},
-
-	showCrawler: function(options) {
-		if (typeof options.images == 'string') {
-
-			// load list of images
-			//
-			new Directory({
-				path: options.images
-			}).load({
-
-				// callbacks
-				//
-				success: (model) => {
-					this.showChildView('background', new CrawlerView(_.extend(options, {
-						images: this.getImageUrls(model.getPaths((path) => {
-							return path.endsWith('png') || path.endsWith('.jpg');
-						}))
-					})));
-				}
-			});
-		} else {
-			this.showChildView('background', new CrawlerView(options));
 		}
 	},
 
@@ -589,42 +539,25 @@ export default BaseView.extend({
 		}
 	},
 
-	showVideoFile: function(file, options) {
-		application.launch('video_player', {
-			model: file,
-			preferences: UserPreferences.create('video_player', {
-				show_sidebar: false
-			}),
-			autoplay: true
-		}, options);
+	showCrawler: function(options) {
+		this.showChildView('background', new CrawlerView(options));
 	},
 
-	showVideo: function(path) {
+	onMouseOverBounceable: function(event) {
+		let $element = $(event.target);
 
-		// load video file
+		// add style
 		//
-		new VideoFile({
-			path: path
-		}).fetch({
+		$element.addClass('wobbling');
 
-			// callbacks
+		// wait for duration
+		//
+		window.setTimeout(() => {
+
+			// remove style
 			//
-			success: (file) => {
-				this.showVideoFile(file, {
-					maximized: true,
-					full_screen: false
-				});
-			},
-
-			error: () => {
-
-				// show error message
-				//
-				application.error({
-					message: 'Video not found.'
-				});
-			}
-		});
+			$element.removeClass('wobbling');
+		}, 300);
 	},
 
 	//
@@ -645,12 +578,6 @@ export default BaseView.extend({
 	//
 	// mouse event handling methods
 	//
-
-	onClickLogo: function() {
-		if (config.branding.welcome.splash.brand.logo.sound) {
-			application.play(config.branding.welcome.splash.brand.logo.sound);
-		}
-	},
 
 	onClickShowVideo: function() {
 		this.showVideo(config.welcome.options.view_video.path);

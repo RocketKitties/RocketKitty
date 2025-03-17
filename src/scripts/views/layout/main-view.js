@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the main single column outer container view.             |
+|       This defines the main single column outer container view.              |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import BaseView from '../../views/base-view.js';
@@ -35,7 +35,7 @@ export default BaseView.extend({
 				<%= gradients %>
 			</defs>
 		</svg>
-		
+
 		<div id="header"></div>
 		<div id="main">
 			<div class="loading">
@@ -69,9 +69,9 @@ export default BaseView.extend({
 			<feOffset in="penumbra" result="penumbra" dx="2" dy="2"></feOffset>
 
 			<feMerge>
-				<feMergeNode in="umbra" /> 
+				<feMergeNode in="umbra" />
 				<feMergeNode in="penumbra" />
-				<feMergeNode in="SourceGraphic" /> 
+				<feMergeNode in="SourceGraphic" />
 			</feMerge>
 		</filter>
 
@@ -84,9 +84,9 @@ export default BaseView.extend({
 				 0  1.5  0  0  0
 				 0  0  1.5  0  0
 				 0  0  0  1.5  0"/>
-			<feMerge> 
+			<feMerge>
 				<feMergeNode in="blur"/>
-				<feMergeNode in="SourceGraphic"/> 
+				<feMergeNode in="SourceGraphic"/>
 			</feMerge>
 		</filter>
 	`,
@@ -244,7 +244,7 @@ export default BaseView.extend({
 
 		// set optional parameter defaults
 		//
-		if (this.options.show_header == undefined && !application.isEmbedded()) {
+		if (this.options.show_header == undefined) {
 			this.options.show_header = true;
 		}
 	},
@@ -288,17 +288,6 @@ export default BaseView.extend({
 		this.showChildView('header', new HeaderView({
 			nav: this.options.nav
 		}));
-	},
-
-	showUserHeader: function(user) {
-		import(
-			'../../views/layout/user-header-view.js'
-		).then((UserHeaderView) => {
-			this.showChildView('header', new UserHeaderView.default({
-				model: user,
-				nav: this.options.nav
-			}));
-		});
 	},
 
 	showMain: function(view) {

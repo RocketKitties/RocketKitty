@@ -4,10 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a two dimensional vector type and its operations.        |
+|       This defines a two dimensional vector type and its operations.         |
+|                                                                              |
+|       Author(s): Abe Megahed                                                 |
+|                                                                              |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 export default class Vector2 {

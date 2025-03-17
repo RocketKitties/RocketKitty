@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a view used for showing a split view.                    |
+|       This defines a view used for showing a split view.                     |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import BaseView from '../../views/base-view.js';
@@ -587,10 +587,6 @@ export default BaseView.extend({
 		if (Browser.is_mobile) {
 			this.toggleSideBar();
 		}
-
-		// play tap sound
-		//
-		application.play('tap');
 
 		// block event from parent
 		//

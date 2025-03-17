@@ -4,15 +4,15 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This is a behavior for maximizing dialogs.                            |
+|       This is a behavior for maximizing dialogs.                             |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import Browser from '../../../utilities/web/browser.js';
@@ -115,10 +115,6 @@ export default {
 		//
 		if (!options || !options.silent) {
 			this.onResize();
-
-			// play maximize sound
-			//
-			application.play('maximize');
 		}
 
 		// perform callback
@@ -164,10 +160,6 @@ export default {
 		//
 		if (!options || !options.silent) {
 			this.onResize();
-
-			// play restore sound
-			//
-			application.play('restore');
 		}
 
 		// remove overlay controls / collapse button

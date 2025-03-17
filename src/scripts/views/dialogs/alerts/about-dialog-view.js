@@ -4,16 +4,16 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a notification dialog that is used to show a             |
-|        modal about dialog box.                                               |
+|       This defines a notification dialog that is used to show a              |
+|       modal about dialog box.                                                |
 |                                                                              |
-|        Author(s): Abe Megahed                                                |
+|       Author(s): Abe Megahed                                                 |
 |                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.md', which is part of this source code distribution.         |
+|       This file is subject to the terms and conditions defined in            |
+|       'LICENSE.md', which is part of this source code distribution.          |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
+|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
 \******************************************************************************/
 
 import ModalView from '../../../views/dialogs/modal-view.js';
@@ -29,7 +29,7 @@ export default ModalView.extend({
 
 	template: template(`
 		<div class="modal-dialog">
-		
+
 			<div class="modal-header">
 				<div class="heading">
 					<div class="icon">
@@ -40,7 +40,7 @@ export default ModalView.extend({
 					</div>
 				</div>
 			</div>
-		
+
 			<div class="modal-content welcome">
 				<div class="modal-body">
 					<div class="logo">
@@ -61,19 +61,19 @@ export default ModalView.extend({
 							<% if (branding.welcome.splash.brand.logotype.names) { %>
 							<% let names = branding.welcome.splash.brand.logotype.names; %>
 							<% let keys = Object.keys(names); %>
-							<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(/ /g, '&nbsp') %></span><% } %>
+							<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(' ', '&nbsp') %></span><% } %>
 							<% } %>
 						</h1>
 						<% } %>
-		
+
 						<% if (branding.welcome.splash.tagline && branding.welcome.splash.tagline.text) { %>
 						<div class="tagline"><%= branding.welcome.splash.tagline.text %></div>
 						<% } %>
-		
+
 						<% if (branding.welcome.splash.description && branding.welcome.splash.description.text) { %>
 						<div class="description"><%= branding.welcome.splash.description.text %></div>
 						<% } %>
-						
+
 						<% if (branding.footer.copyright) { %>
 						<div class="copyright">
 							<span class="year">Copyright &copy; <%= branding.footer.copyright.year %></span>
@@ -82,7 +82,7 @@ export default ModalView.extend({
 						<% } %>
 					</div>
 				</div>
-		
+
 				<div class="modal-footer">
 					<div class="buttons">
 						<button class="ok btn btn-primary" data-dismiss="modal">
@@ -98,55 +98,6 @@ export default ModalView.extend({
 		'click': 'onClick',
 		'click .ok': 'onClickOk'
 	}),
-
-	//
-	// dialog attributes
-	//
-
-	size: config.defaults.dialogs.sizes.tiny,
-
-	//
-	// constructor
-	//
-
-	initialize: function() {
-
-		// load required fonts
-		//
-		if (config.branding.welcome) {
-			this.loadFonts(config.branding.welcome);
-		}
-	},
-
-	loadFonts: function(welcome) {
-		if (welcome.splash && welcome.splash.brand && welcome.splash.brand.logotype) {
-			this.loadLogoTypeFonts(welcome.splash.brand.logotype);
-		}
-		if (welcome.splash && welcome.splash.tagline && welcome.splash.tagline.font) {
-			application.loadFont(welcome.splash.tagline.font);
-		}
-		if (welcome.splash && welcome.splash.description && welcome.splash.description.font) {
-			application.loadFont(welcome.splash.description.font);
-		}
-	},
-
-	loadLogoTypeFonts: function(logotype) {
-		if (logotype.font) {
-			application.loadFont(logotype.font);
-		}
-
-		// load fonts for logotype names
-		//
-		if (logotype.names) {
-			let keys = Object.keys(logotype.names);
-			for (let i = 0; i < keys.length; i++) {
-				let key = keys[i];
-				if (logotype.names[key].font) {
-					application.loadFont(logotype.names[key].font);
-				}
-			}
-		}
-	},
 
 	//
 	// dialog methods
@@ -167,10 +118,10 @@ export default ModalView.extend({
 
 	setDialogStyles: function(styles) {
 		if (styles.tagline) {
-			DomUtils.setTextBlockStyles(this.$el.find('.tagline'), styles.tagline);
+			this.setTagLineStyles(styles.tagline);
 		}
 		if (styles.description) {
-			DomUtils.setTextStyles(this.$el.find('.description'), styles.description);
+			this.setDescriptionStyles(styles.description);
 		}
 	},
 
@@ -214,6 +165,14 @@ export default ModalView.extend({
 			for (let i = 0; i < keys.length; i++) {
 				DomUtils.setTitleStyles($(elements[i]), logotype.names[keys[i]]);
 			}
+		}
+	},
+
+	setTagLineStyles: function(tagline) {
+		if (tagline.font) {
+			this.$el.find('.tagline').css({
+				'font-family': config.fonts[tagline.font]['font-family']
+			});
 		}
 	},
 
