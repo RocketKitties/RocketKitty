@@ -9,7 +9,7 @@
 		"brand": {
 			"logo": {
 				"src": "images/logos/icon-simple.svg",
-				"background2": "var(--primary-color)",
+				"background": "var(--primary-color)",
 				"border": "rounded",
 				"height": 30
 			},
@@ -18,18 +18,12 @@
 				"font": "Varela Round",
 
 				"names": {
-					"R": {
-						"font_size": "125%",
+					"Rocket": {
+						"first_letter": "125%",
 						"color": "var(--primary-color)"
 					},
-					"ocket": {
-						"color": "var(--primary-color)"
-					},
-					"K": {
-						"font_size": "125%",
-						"color": "#a0a0c0"
-					},
-					"itty": {
+					"Kitty": {
+						"first_letter": "125%",
 						"color": "#a0a0c0"
 					}
 				}
@@ -41,139 +35,132 @@
 				"icon": "fa fa-info-circle",
 				"href": "#about"
 			},
-			"Chats": {
-				"icon": "fa fa-message",
-				"href": "http://chatkitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(220, 50%, 50%)"
+			"Uses": {
+				"icon": "fa fa-user-circle",
+				"href": "#uses",
+				"platform": "desktop-only"
 			},
-			"Maps": {
-				"icon": "fa fa-map",
-				"href": "http://mapkitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(220, 66%, 66%)"
+			"Users": {
+				"icon": "fa fa-users",
+				"href": "#users",
+				"platform": "desktop-only"
 			},
-			"Data": {
-				"icon": "fa fa-database",
-				"href": "http://datakitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(90, 50%, 60%)"
+			"Platforms": {
+				"icon": "fa fa-cloud",
+				"href": "#platforms"
 			},
-			"Photos": {
-				"icon": "fa fa-image",
-				"href": "http://photokitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(40, 90%, 60%)"
+			"Features": {
+				"icon": "fa fa-lightbulb",
+				"href": "#features",
+				"platform": "desktop-only"
 			},
-			"Code": {
-				"icon": "fa fa-code",
-				"href": "http://sourcekitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(25, 100%, 66%)"
+			"Benefits": {
+				"icon": "fa fa-gift",
+				"href": "#benefits",
+				"platform": "desktop-only"
 			},
-			"Files": {
-				"icon": "fa fa-file",
-				"href": "http://filekitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(30, 25%, 50%)"
-			},
-			"S3": {
-				"icon": "fa fa-bucket",
-				"href": "http://s3kitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(0, 100%, 75%)"
-			},
-			"Dreams": {
-				"icon": "fa fa-moon",
-				"href": "http://dreamkitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(300, 33%, 50%)"
-			},
-			"Music": {
-				"icon": "fa fa-music",
-				"href": "http://musickitty.org",
-				"platform": "desktop-only",
-				"color": "hsl(250, 33%, 60%)"
-			},
-			"Contact": {
-				"icon": "fa fa-envelope",
-				"href": "#contact",
-				"platform": "mobile-only"
+			"Self-Hosting": {
+				"icon": "fa fa-computer",
+				"href": "#self-hosting",
+				"platform": "desktop-only"
 			}
 		},
 
 		"buttons": {
-			"show_theme": true
+			"show_theme": true,
+			"show_animation": true,
+			"animating": false
 		}
 	},
 
 	"welcome": {
-		"background": "linear-gradient(to bottom, hsla(200, 90%, 66%, 0%) 0%, hsla(200, 90%, 66%, 50%) 100%)",
-		"template": "templates/welcome.tpl",
+		"background": "linear-gradient(to bottom, hsla(200, 100%, 66%, 0%) 0%, hsla(200, 100%, 66%, 50%) 100%)",
+		"template": "welcome.tpl",
 
+		"ribbons": [{
+			"text": "Open Source",
+			"font_weight": "bold",
+			"height": 40,
+			"line_height": 40,
+			"corner": "bottom right",
+			"offset": 60,
+			"url": "#downloads"
+		}, {
+			"text": "Free",
+			"font_weight": "bold",
+			"height": 40,
+			"line_height": 40,
+			"corner": "bottom right",
+			"offset": 20,
+			"color": "black",
+			"background": "white",
+			"shadow": "none",
+			"url": "#installation"
+		}, {
+			"text": "&nbsp;",
+			"font_weight": "bold",
+			"height": 40,
+			"line_height": 40,
+			"corner": "bottom right",
+			"offset": -20,
+			"shadow": "none"
+		}],
+		
 		"carousel": {
-			"template": "templates/welcome/carousel.tpl",
+			"template": "welcome/carousel.tpl",
 
 			"scroller": {
 				"speed": 0.05,
 				"images": {
-					"stars": {
-						"class": "stars",
-						"src": "images/scroller/stars.svg",
-						"width": 0.5,
-						"height": 0.5,
-						"top": 0,
-						"left": 0
-					},
 					"sun": {
 						"class": "sun",
-						"src": "images/scroller/sunrise.svg",
+						"src": "images/welcome/scroller/sunrise.svg",
 						"width": 1,
 						"top": 0,
 						"left": 0
 					},
 					"moon": {
 						"class": "moon",
-						"src": "images/scroller/moonrise.svg",
+						"src": "images/welcome/scroller/moonrise.svg",
 						"width": 1,
 						"top": 0,
 						"left": 0
 					},
 					"cloud1": {
 						"class": "cloud",
-						"src": "images/scroller/clouds.svg",
+						"src": "images/welcome/scroller/clouds.svg",
 						"width": 0.5,
 						"top": 0.075,
-						"left": 0,
+						"left": 0.085,
 						"speed": 0.25
 					},
 					"cloud2": {
 						"class": "cloud",
-						"src": "images/scroller/clouds.svg",
+						"src": "images/welcome/scroller/clouds.svg",
 						"width": 0.75,
 						"top": 0.1,
-						"left": 0,
+						"left": -0.125,
 						"speed": -0.33
 					},
 					"cloud3": {
 						"class": "cloud",
-						"src": "images/scroller/clouds.svg",
+						"src": "images/welcome/scroller/clouds.svg",
 						"width": 0.75,
 						"bottom": 0.4,
-						"left": 0.33, 
+						"left": 0.65, 
 						"speed": 0.5
 					},
 					"cloud4": {
 						"class": "cloud",
-						"src": "images/scroller/clouds.svg",
+						"src": "images/welcome/scroller/clouds2.svg",
 						"width": 1,
-						"bottom": 0.15,
-						"left": 0,
+						"bottom": 0.1,
+						"left": -0.1,
 						"speed": -0.75
 					},
 					"cloud5": {
 						"class": "cloud",
-						"src": "images/scroller/clouds2.svg",
+						"src": "images/welcome/scroller/clouds2.svg",
 						"width": 1.25,
 						"bottom": -0.2,
 						"left": 0.5, 
@@ -181,7 +168,16 @@
 					},
 					"jet": {
 						"class": "jet",
-						"src": "images/scroller/flying-jet.svg",
+						"src": "images/welcome/scroller/flying-jet.svg",
+						"width": 1,
+						"skip": 15,
+						"top": 0,
+						"left": -2,
+						"speed": -5
+					},
+					"jet-lights": {
+						"class": "lights",
+						"src": "images/welcome/scroller/flying-jet-lights.svg",
 						"width": 1,
 						"skip": 15,
 						"top": 0,
@@ -190,7 +186,7 @@
 					},
 					"kite": {
 						"class": "kite",
-						"src": "images/scroller/flying-kite.svg",
+						"src": "images/welcome/scroller/flying-kite.svg",
 						"width": 1,
 						"skip": 2,
 						"top": 0.25,
@@ -199,9 +195,18 @@
 					},
 					"ufo": {
 						"class": "ufo",
-						"src": "images/scroller/flying-ufo.svg",
+						"src": "images/welcome/scroller/flying-ufo.svg",
 						"width": 1,
-						"skip": 20,
+						"skip": 10,
+						"top": 0.8,
+						"left": 0,
+						"speed": 2
+					},
+					"ufo-lights": {
+						"class": "lights",
+						"src": "images/welcome/scroller/flying-ufo-lights.svg",
+						"width": 1,
+						"skip": 10,
 						"top": 0.8,
 						"left": 0,
 						"speed": 2
@@ -216,29 +221,26 @@
 			"brand": {
 				"logo": {
 					"src": "images/logos/icon.svg",
-					"background2": "var(--primary-color)",
 					"border": "rounded",
-					"transform": "scale(1.5)",
-					"filter": "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.25))"
+					"size": "large",
+					"transform": "scale(1.25)",
+					"filter": "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.25))",
+					"margin_top": 0,
+					"margin_bottom": 40
 				},
 
 				"logotype": {
 					"font": "Varela Round",
 					"text_shadow": "5px 5px 15px rgba(0, 0, 0, 0.25)",
+					"platform": "mobile",
 
 					"names": {
-						"R": {
-							"font_size": "150%",
+						"Rocket": {
+							"first_letter": "150%",
 							"color": "var(--primary-color)"
 						},
-						"ocket": {
-							"color": "var(--primary-color)"
-						},
-						"K": {
-							"font_size": "150%",
-							"color": "#a0a0c0"
-						},
-						"itty": {
+						"Kitty": {
+							"first_letter": "150%",
 							"color": "#a0a0c0"
 						},
 						".org": {
@@ -266,38 +268,9 @@
 	"page": {
 		"background": "",
 		"theme": "",
-		"font": "Proxima Nova",
-
-		"heading1": {
-			"font": "Varela Round",
-			"color": "var(--primary-color)",
-
-			"icon": {
-				"color": "var(--secondary-color)"
-			}
-		},
-
-		"heading2": {
-			"font": "Varela Round",
-			"color": "var(--primary-color)",
-
-			"icon": {
-				"color": "var(--secondary-color)"
-			}
-		},
-
-		"heading3": {
-			"font": "Varela Round",
-			"color": "var(--primary-color)",
-
-			"icon": {
-				"color": "var(--secondary-color)"
-			}
-		},
 
 		"footer": {
-			"background": "linear-gradient(to bottom, hsla(200, 90%, 66%, 0%) 0%, hsla(200, 90%, 66%, 50%) 100%)",
-			"background": "hsla(200, 90%, 50%, 25%)",
+			"background": "hsla(200, 100%, 50%, 25%)",
 
 			"brand": {
 				"logo": {
@@ -311,18 +284,12 @@
 					"font": "Varela Round",
 
 					"names": {
-						"R": {
-							"font_size": "150%",
+						"Rocket": {
+							"first_letter": "150%",
 							"color": "var(--primary-color)"
 						},
-						"ocket": {
-							"color": "var(--primary-color)"
-						},
-						"K": {
-							"font_size": "150%",
-							"color": "#a0a0c0"
-						},
-						"itty": {
+						"Kitty": {
+							"first_letter": "150%",
 							"color": "#a0a0c0"
 						},
 						".org": {
@@ -349,62 +316,87 @@
 							"icon": "fa fa-info-circle",
 							"href": "#about"
 						},
-						"Launchpad": {
-							"icon": "fa fa-rocket",
-							"href": "#features/self-hostable"
+						"Uses": {
+							"icon": "fa fa-user-circle",
+							"href": "#uses"
 						},
-						"We Can Do It!": {
+						"Users": {
 							"icon": "fa fa-users",
+							"href": "#users"
+						},
+						"Platforms": {
+							"icon": "fa fa-computer",
+							"href": "#platforms"
+						},
+						"Features": {
+							"icon": "fa fa-lightbulb",
+							"href": "#features"
+						},
+						"Benefits": {
+							"icon": "fa fa-gift",
+							"href": "#benefits"
+						},
+						"Self-Hosting": {
+							"icon": "fa fa-computer",
+							"href": "#self-hosting"
+						},
+						"We Can Do It": {
+							"icon": "fa fa-hand-fist",
 							"href": "#welcome/we-can-do-it"
 						}
 					}		
 				},
-				"Kitties": {
+				"Platforms": {
 					"icon": "fa fa-download",
 					"links": {
 						"ChatKitty": {
 							"icon": "fa fa-message",
-							"href": "http://chatkitty.org",
+							"href": "http://chats.rocketkitty.org",
 							"color": "hsl(220, 50%, 50%)"
 						},
 						"MapKitty": {
 							"icon": "fa fa-map",
-							"href": "http://mapkitty.org",
+							"href": "http://maps.rocketkitty.org",
 							"color": "hsl(220, 66%, 66%)"
 						},
 						"DataKitty": {
 							"icon": "fa fa-database",
-							"href": "http://datakitty.org",
+							"href": "http://data.rocketkitty.org",
 							"color": "hsl(90, 50%, 60%)"
 						},
 						"PhotoKitty": {
 							"icon": "fa fa-image",
-							"href": "http://photokitty.org",
+							"href": "http://photos.rocketkitty.org",
 							"color": "hsl(40, 90%, 60%)"
 						},
 						"SourceKitty": {
 							"icon": "fa fa-code",
-							"href": "http://sourcekitty.org",
+							"href": "http://source.rocketkitty.org",
 							"color": "hsl(25, 100%, 66%)"
 						},
 						"FileKitty": {
 							"icon": "fa fa-file",
-							"href": "http://filekitty.org",
+							"href": "http://files.rocketkitty.org",
 							"color": "hsl(30, 25%, 50%)"
 						},
 						"S3Kitty": {
 							"icon": "fa fa-bucket",
-							"href": "http://s3kitty.org",
-							"color": "hsl(0, 100%, 75%)"
+							"href": "http://s3.rocketkitty.org",
+							"color": "hsl(10, 75%, 60%)"
+						},
+						"VideoKitty": {
+							"icon": "fa fa-video",
+							"href": "http://videos.rocketkitty.org",
+							"color": "hsl(-10, 100%, 66%)"
 						},
 						"DreamKitty": {
 							"icon": "fa fa-moon",
-							"href": "http://dreamkitty.org",
+							"href": "http://dreams.rocketkitty.org",
 							"color": "hsl(300, 33%, 50%)"
 						},
-						"MusicKitty": {
+						"AudioKitty": {
 							"icon": "fa fa-music",
-							"href": "http://musickitty.org",
+							"href": "http://music.rocketkitty.org",
 							"color": "hsl(250, 33%, 60%)"
 						}
 					}
@@ -426,7 +418,7 @@
 		"background": "var(--secondary-color)",
 		"color": "white",
 		"copyright": {
-			"year": "2024",
+			"year": "2025",
 			"logo": "images/logos/icon-white.svg",
 			"url": "#",
 			"entity": "RocketKitty.org"

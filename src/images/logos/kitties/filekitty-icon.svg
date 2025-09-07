@@ -43,8 +43,6 @@
 		</style>
 	</defs>
 
-	<rect width="512" height="512" fill="hsl(30, 25%, 50%)" style="display:none" />
-
 	<g id="folder-full" transform="translate(15, -35) scale(10, 10)">
 		<g class="folder-top" transform="translate(0 1.5)">
 			<path d="M 43.5,11.5 H 21 L 16.5,7 h -12 c -3,0 -3,0 -3,3 v 8 h 45 v -3.5 c 0,0 0,-3 -3,-3 z" />

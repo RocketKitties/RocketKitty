@@ -18,7 +18,7 @@
 // library imports
 //
 import '../library/underscore/underscore.js';
-import '../library/jquery/jquery-3.6.0.js';
+import '../library/jquery/jquery-3.7.1.js';
 import '../library/backbone/backbone.js';
 import '../library/backbone/marionette/backbone.marionette.js';
 
@@ -61,7 +61,7 @@ export default Marionette.Application.extend(_.extend({}, Loadable, Alertable, {
 		dialogs: new DialogSettings()
 	},
 	
-	defaults: config.defaults,
+	defaults: config.settings.defaults,
 
 	//
 	// constructor
@@ -193,9 +193,9 @@ export default Marionette.Application.extend(_.extend({}, Loadable, Alertable, {
 	},
 
 	loadFont: function(font) {
-		if (font && font != '' && config.fonts[font]) {
-			let fontName = config.fonts[font]['font-family'];
-			let fontUrl = config.fonts[font].url;
+		if (font && font != '' && config.settings.fonts[font]) {
+			let fontName = config.settings.fonts[font]['font-family'];
+			let fontUrl = config.settings.fonts[font].url;
 			if (fontUrl) {
 				ThemeSettings.loadFont(fontName, fontUrl);
 			}

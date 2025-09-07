@@ -25,6 +25,7 @@ Welcome Screen
 - If you need to manage geolocated data, like aerial drone photos, use [MapKitty](https://github.com/RocketKitties/MapKitty).
 - If you want to manage and play music, podcasts, or audio, use [MusicKitty](https://github.com/RocketKitties/MusicKitty).
 - If you are a software developer and want to manage your source code, use [SourceKitty](https://github.com/RocketKitties/SourceKitty).
+- If you want to manage and play videos, use [VideoKitty](https://github.com/RocketKitties/VideoKitty).
 - If you just want to manage your files and don't need the ability to exchange messages, use [FileKitty](https://github.com/RocketKitties/FileKitty).
 - If you want to experiment with AI generated images, use [DreamKitty](https://github.com/RocketKitties/DreamKitty).
 - If you want to access data in S3 buckets, use [S3Kitty](https://github.com/RocketKitties/S3Kitty).
@@ -88,6 +89,14 @@ Welcome Screen
 </p>
 
 <p>
+	<a href="https://github.com/RocketKitties/VideoKitty">
+		<img src="images/logos/videokitty.svg" width="80">
+		<b>VideoKitty</b>
+	</a>
+	<p>VideoKitty is a cloud-based video storage, management, and sharing system. You love your videos. Now you can love your video platform. Best of all, you can run it on your own server.</p>
+</p>
+
+<p>
 	<a href="https://github.com/RocketKitties/DreamKitty">
 		<img src="images/logos/dreamkitty.svg" width="80">
 		<b>DreamKitty</b>
@@ -105,7 +114,7 @@ Welcome Screen
 
 ## License
 
-Distributed under the <a href="https://indiesource.org/">IndieSource License</a> which allows unrestricted use of the software except by very large corporations. See [LICENSE.md](LICENSE.md) for more information.
+Distributed under the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a> which allows unrestricted use of the software. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 

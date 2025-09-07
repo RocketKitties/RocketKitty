@@ -18,7 +18,6 @@
 import '../../../vendor/bootstrap/js/collapse.js';
 import BaseView from '../../views/base-view.js';
 import DomUtils from '../../utilities/web/dom-utils.js';
-import Browser from '../../utilities/web/browser.js';
 
 export default BaseView.extend({
 
@@ -71,13 +70,7 @@ export default BaseView.extend({
 
 				<ul class="nav navbar-nav navbar-right">
 					<div class="navbar-form">
-						<li class="buttons">
-							<% if (show_theme) { %>
-							<button id="theme" class="btn btn-sm" data-toggle="tooltip" title="<%= theme.toTitleCase() %> Theme" data-placement="left">
-								<%= theme_icon %>
-							</button>
-							<% } %>
-						</li>
+						<li class="buttons"></li>
 					</div>
 				</ul>
 			</div>
@@ -85,8 +78,7 @@ export default BaseView.extend({
 	`),
 
 	events: {
-		'click .brand': 'onClickBrand',
-		'click #theme': 'onClickTheme'
+		'click .brand': 'onClickBrand'
 	},
 
 	//
@@ -121,32 +113,6 @@ export default BaseView.extend({
 	},
 
 	//
-	// getting methods
-	//
-
-	getNextTheme: function(theme) {
-		switch (theme) {
-			case 'auto':
-				return 'light';
-			case 'light':
-				return 'dark';
-			case 'dark':
-				return 'auto';
-		}
-	},
-
-	getThemeIcon: function(theme) {
-		switch (theme) {
-			case 'light':
-				return '<i class="fa fa-sun"></i>';
-			case 'dark':
-				return '<i class="fa fa-moon"></i>';
-			default:
-				return '<i class="fa fa-circle-half-stroke"></i>';
-		}
-	},
-
-	//
 	// setting methods
 	//
 
@@ -157,148 +123,147 @@ export default BaseView.extend({
 		}
 	},
 
-	setStyles: function(header) {
-		if (!header) {
+	setStyles: function(attributes) {
+		if (!attributes) {
 			return;
 		}
-		if (header.background == 'transparent') {
-			this.$el.find('.navbar').css('background', header.background);
+		if (attributes.height) {
+			this.$el.css('min-height', attributes.height);
 		}
-		if (header.background && header.background != 'transparent') {
-			this.$el.find('.navbar').addClass('colored').css('background', header.background);
-		}
-		if (header.font) {
-			this.$el.find('.navbar').css('font-family', config.fonts[header.font]['font-family']);
-		}
-		if (header.background == 'transparent') {
-			this.$el.find('.navbar').removeClass('navbar-inverse');
-		}
-		if (header.height) {
-			this.$el.css('min-height', header.height);
-		}
-		if (header.align == 'center') {
+		if (attributes.align == 'center') {
 			this.$el.addClass('center-aligned');
 		}
 	},
 
-	setLogoStyles: function(logo) {
-		if (!logo) {
+	setLogoStyles: function(element, attributes) {
+		if (!attributes) {
 			return;
 		}
-		if (logo.height) {
-			this.$el.find('.logo').css('height', logo.height);
-		}
-		if (logo.padding) {
-			this.$el.find('.logo').css('padding', logo.padding);
-		}
-		if (logo.background) {
-			this.$el.find('.brand img').css('background', logo.background);
-		}
-		if (logo.border == 'round') {
-			this.$el.find('.brand img').addClass('round');
-		}
-		if (logo.border == 'rounded') {
-			this.$el.find('.brand img').addClass('rounded');
-		}
-		if (logo.rendering == "pixelated") {
-			this.$el.find('.brand img').addClass('pixelated');
-		}
+
+		// set logo styles
+		//
+		DomUtils.setBlockStyles($(element), attributes);
+		DomUtils.setBorderStyles($(element), attributes);
+		DomUtils.setBackgroundStyles($(element), attributes);
+		DomUtils.setImageStyles($(element).find('img'), attributes);
 	},
 
-	setLogoTypeStyles: function(logotype) {
-		if (!logotype) {
+	setLogoTypeStyles: function(element, attributes) {
+		if (!attributes) {
 			return;
 		}
 
 		// set logotype styles
 		//
-		DomUtils.setTextBlockStyles(this.$el.find('.brand'), logotype);
+		DomUtils.setTextBlockStyles(this.$el.find('.brand'), attributes);
 
 		// set logotype name styles
 		//
-		if (logotype.names) {
+		if (attributes.names) {
 			let elements = this.$el.find('.brand .logotype span');
-			let keys = Object.keys(logotype.names);
+			let keys = Object.keys(attributes.names);
 			for (let i = 0; i < keys.length; i++) {
-				DomUtils.setTextBlockStyles($(elements[i]), logotype.names[keys[i]]);
+				DomUtils.setTextBlockStyles($(elements[i]), attributes.names[keys[i]]);
 			}
 		}
 	},
 
-	setBrandStyles: function(attributes) {
+	setBrandStyles: function(element, attributes) {
+		if (!attributes) {
+			return;
+		}
+
 		if (attributes.logo) {
-			this.setLogoStyles(attributes.logo);
+			this.setLogoStyles(this.$el.find('.logo'), attributes.logo);
 		}
 		if (attributes.logotype) {
-			this.setLogoTypeStyles(attributes.logotype);
+			this.setLogoTypeStyles(this.$el.find('.logotype'), attributes.logotype);
 		}
 	},
 
-	setNavBarStyles: function(header) {
-		if (header.color) {
-			this.$el.find('.navbar .navbar-nav li a').css('color', header.color).addClass('colored');
+	setNavBarStyles: function(element, attributes) {
+		if (!attributes) {
+			return;
 		}
-		if (header.nav) {
-			this.setNavStyles(header.nav);
+
+		// set nav bar styles
+		//
+		if (attributes.background == 'transparent') {
+			$(element).css('background', attributes.background);
+		}
+		if (attributes.background && attributes.background != 'transparent') {
+			$(element).addClass('colored').css('background', attributes.background);
+		}
+		if (attributes.font) {
+			$(element).css('font-family', config.settings.fonts[attributes.font]['font-family']);
+		}
+		if (attributes.background == 'transparent') {
+			$(element).removeClass('navbar-inverse');
+		}
+
+		// set nav item styles
+		//
+		if (attributes.color) {
+			$(element).find('.navbar-nav li a').css('color', attributes.color).addClass('colored');
+		}
+		if (attributes.nav) {
+			this.setNavStyles($(element).find('.navbar-nav'), attributes.nav);
 		}
 	},
 
-	setNavStyles: function(nav) {
-		if (nav.color) {
-			this.$el.find('.navbar-nav').css({
-				'color': nav.color,
-				'font-family': nav.font
+	setNavStyles: function(element, attributes) {
+		if (!attributes) {
+			return;
+		}
+
+		if (attributes.color) {
+			this.$el.css({
+				'color': attributes.color,
+				'font-family': attributes.font
 			});
 		}
 	},
 
-	setButtonStyles: function(buttons) {
-		let keys = Object.keys(buttons);
-		if (buttons[keys[0]]) {
-			this.setSignInStyles(buttons[keys[0]]);
+	setButtonsStyles: function(element, attributes) {
+		if (!attributes) {
+			return;
 		}
-		if (buttons[keys[1]]) {
-			this.setSignUpStyles(buttons[keys[1]]);
+		let keys = Object.keys(attributes);
+		if (attributes[keys[0]]) {
+			this.setButtonStyles($(element).find('.sign-in'), attributes[keys[0]]);
 		}
-	},
-
-	setSignInStyles: function(signin) {
-		if (signin.background) {
-			this.$el.find('.buttons .sign-in').css({
-				'color': signin.color,
-				'background': signin.background,
-				'border-color': signin.background
-			});
-		}
-		if (signin.color) {
-			this.$el.find('.buttons .sign-in').css('color', signin.color);
-		}
-		if (signin.font) {
-			this.$el.find('.buttons .sign-in').css('font-family', config.fonts[signin.font]['font-family']);
+		if (attributes[keys[1]]) {
+			this.setButtonStyles($(element).find('.sign-up'), attributes[keys[1]]);
 		}
 	},
 
-	setSignUpStyles: function(signup) {
-		if (signup.background) {
-			this.$el.find('.buttons .sign-up').css({
-				'color': signup.color,
-				'background': signup.background,
-				'border-color': signup.background
+	setButtonStyles: function(element, attributes) {
+		if (!attributes) {
+			return;
+		}
+
+		// set button colors
+		//
+		if (attributes.background) {
+			$(element).css({
+				'color': attributes.color,
+				'background': attributes.background,
+				'border-color': attributes.background
 			});
 		}
-		if (signup.color) {
-			this.$el.find('.buttons .sign-up').css('color', signup.color);
+		if (attributes.color) {
+			$(element).css('color', attributes.color);
 		}
-		if (signup.font) {
-			this.$el.find('.buttons .sign-up').css('font-family', config.fonts[signup.font]['font-family']);
+		if (attributes.font) {
+			$(element).css('font-family', config.settings.fonts[attributes.font]['font-family']);
 		}
 	},
 
 	setHeaderStyles: function(attributes) {
 		this.setStyles(attributes);
-		this.setNavBarStyles(attributes);
-		this.setBrandStyles(attributes.brand);
-		this.setButtonStyles(attributes.buttons);
+		this.setNavBarStyles(this.$el.find('.navbar'), attributes);
+		this.setBrandStyles(this.$el.find('.brand'), attributes.brand);
+		this.setButtonsStyles(this.$el.find('.buttons'), attributes.buttons);
 	},
 
 	//
@@ -306,15 +271,10 @@ export default BaseView.extend({
 	//
 
 	templateContext: function() {
-		let theme = application.getTheme();
 		return {
-			defaults: config.defaults,
+			defaults: config.settings.defaults,
 			branding: config.branding,
-			nav: this.options.nav,
-			show_theme: config.branding.header.buttons.show_theme,
-			theme: theme,
-			theme_icon: this.getThemeIcon(theme),
-			is_mobile: Browser.is_mobile
+			nav: this.options.nav
 		};
 	},
 
@@ -339,29 +299,6 @@ export default BaseView.extend({
 		application.navigate('#', {
 			reset: true
 		});
-	},
-
-	onClickTheme: function() {
-		let theme = this.getNextTheme(application.getTheme());
-		let themeIcon = this.getThemeIcon(theme);
-		let themeTooltip = theme.toTitleCase() + ' Theme';
-
-		// update theme attributes
-		//
-		this.$el.find('#theme').empty().html(themeIcon);
-		this.$el.find('#theme').attr('data-original-title', themeTooltip);
-
-		// update currently displayed tooltip
-		//
-		$('.tooltip .tooltip-inner').text(themeTooltip);
-
-		// save value for later
-		//
-		localStorage.setItem('theme', theme);
-
-		// update view
-		//
-		application.setTheme(theme);
 	},
 
 	//

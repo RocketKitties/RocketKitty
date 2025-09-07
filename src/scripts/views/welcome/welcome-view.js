@@ -4,18 +4,20 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|       This defines the initial welcome view of the application.              |
+|        This defines the initial welcome view of the application.             |
 |                                                                              |
-|       Author(s): Abe Megahed                                                 |
+|        Author(s): Abe Megahed                                                |
 |                                                                              |
-|       This file is subject to the terms and conditions defined in            |
-|       'LICENSE.md', which is part of this source code distribution.          |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|       Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com         |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import BaseView from '../../views/base-view.js';
+import SplashView from '../../views/welcome/splash-view.js';
+import SplashTwoColumnView from '../../views/welcome/splash-two-column-view.js';
 import CrawlerView from '../../views/welcome/crawler-view.js';
 import ScrollerView from '../../views/welcome/scroller-view.js';
 import DomUtils from '../../utilities/web/dom-utils.js';
@@ -29,85 +31,39 @@ export default BaseView.extend({
 
 	template: template(`
 		<div class="masthead">
+			<% if (branding.welcome.ribbons) { %>
+
+			<% for (let i = 0; i < branding.welcome.ribbons.length; i++) { %>
+			<% let ribbon = branding.welcome.ribbons[i]; %>
+			<% if (ribbon.url) { %><a href="<%= ribbon.url %>"><% } %>
+			<div class="ribbon">
+				<%= ribbon.text %>
+			</div>
+			<% if (ribbon.url) { %></a><% } %><% } %><% } %>
+
 			<div class="full-size overlay"></div>
 
 			<div class="carousel">
 				<div class="carousel-cell">
 					<div class="background"></div>
 					<div class="full-size overlay"></div>
-				
-					<div class="splash">
-						<svg class="defs">
-							<defs>
-								<%= filters %>
-							</defs>
-						</svg>
-				
-						<% if (branding.welcome.splash.brand.logo) { %>
-						<div class="logo">
-							<% if (branding.welcome.splash.brand.logo.href) { %><a href="<%= branding.welcome.splash.brand.logo.href %>"><% } %><img src="<%= branding.welcome.splash.brand.logo.src %>"<% if (branding.welcome.splash.brand.logo.tooltip) { %> data-toggle="tooltip" title="<%= branding.welcome.splash.brand.logo.tooltip %>"<% } %> /><% if (branding.welcome.splash.brand.logo.href) { %></a><% } %>
-						</div>
-						<% } %>
-						
-						<% if (branding.welcome.splash.greeting && branding.welcome.splash.greeting.text) { %>
-						<div class="greeting"><%= branding.welcome.splash.greeting.text %></div>
-						<% } %>
-				
-						<% if (branding.welcome.splash.brand.logotype) { %>
-						<% if (branding.welcome.splash.brand.logotype.href) { %><a href="<%= branding.welcome.splash.brand.logotype.href %>"><% } %>
-						<div class="logotype">
-							<% if (branding.welcome.splash.brand.logotype.names) { %>
-							<% let names = branding.welcome.splash.brand.logotype.names; %>
-							<% let keys = Object.keys(names); %>
-							<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(' ', '&nbsp') %></span><% } %>
-							<% } %>
-						</div>
-						<% if (branding.welcome.splash.brand.logotype.href) { %></a><% } %>
-						<% } %>
-
-						<% if (branding.welcome.splash.tagline && branding.welcome.splash.tagline.text) { %>
-						<div class="tagline"><%= branding.welcome.splash.tagline.text %></div>
-						<% } %>
-
-						<% if (branding.welcome.splash.description && branding.welcome.splash.description.text) { %>
-						<div class="description"><%= branding.welcome.splash.description.text %></div>
-						<% } %>
-
-						<% if (branding.links) { %>
-						<div class="links">
-							<% for (let i=0; i < branding.links.length; i++) { %>
-							<div class="link"<% if (branding.links[i].font && defaults.fonts[branding.links[i].font]) { %>style="font-family:<%= defaults.fonts[branding.links[i].font]['font-family'] %>"<% } %>>
-								<% if (branding.links[i].image) { %>
-								<a href="<%= branding.links[i].url %>"><img class="pixelated" src="<%= branding.links[i].image %>" /></a>
-								<% } %>
-								<a href="<%= branding.links[i].url %>"><%= branding.links[i].text %></a>
-							</div>
-							<% } %>
-						</div>
-						<% } %>
-
-						<% if (config.defaults.search && !config.defaults.search.hidden) { %>
-						<div class="search row">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="<%= config.defaults.search.placeholder || 'Search' %>">
-								<div class="input-group-addon btn" data-toggle="tooltip" title="Search <%= application.name %>">
-									<i class="active fa fa-search"></i>
-								</div>
-							</div>
-						</div>
-						<% } %>
-
-						<div class="buttons">
-							<% if (show_video) { %>
-							<button class="show-video btn btn-lg desktop-only">
-								<i class="fa fa-video"></i>View Video
-							</button>
-							<% } %>
-						</div>
-					</div>
+					<div class="splash"></div>
 				</div>
 
 				<div class="carousel-cells"></div>
+			</div>
+
+			<div class="options buttons">
+				<% if (show_animation) { %>
+				<button id="animate" class="btn btn-sm" data-toggle="tooltip" title="<%= animate_tooltip %>">
+					<%= animate_icon %>
+				</button>
+				<% } %>
+				<% if (show_theme) { %>
+				<button id="theme" class="btn btn-sm" data-toggle="tooltip" title="<%= theme.toTitleCase() %> Theme">
+					<%= theme_icon %>
+				</button>
+				<% } %>
 			</div>
 		</div>
 
@@ -124,6 +80,10 @@ export default BaseView.extend({
 			el: '.carousel .overlay',
 			replaceElement: true
 		},
+		splash: {
+			el: '.splash',
+			replaceElement: true
+		},
 		cells: {
 			el: '.carousel-cells',
 			replaceElement: true
@@ -135,14 +95,10 @@ export default BaseView.extend({
 	},
 
 	events: {
-		'click .show-video': 'onClickShowVideo',
-		'click .sign-in': 'onClickSignIn',
-		'click .sign-up': 'onClickSignUp',
-		'click .search .btn': 'onClickSearch',
-		'mouseover .bouncable': 'onMouseOverBounceable'
+		'click #animate': 'onClickAnimate',
+		'click #theme': 'onClickTheme',
+		'mouseover .bounceable': 'onMouseOverBounceable'
 	},
-
-	dynamicStyles: null,
 
 	//
 	// constructor
@@ -152,9 +108,6 @@ export default BaseView.extend({
 
 		// load required fonts
 		//
-		if (config.branding.welcome) {
-			this.loadFonts(config.branding.welcome);
-		}
 		if (config.branding.links) {
 			for (let i = 0; i < config.branding.links.length; i++) {
 				if (config.branding.links[i].font) {
@@ -164,159 +117,129 @@ export default BaseView.extend({
 		}
 	},
 
-	loadFonts: function(welcome) {
-		if (welcome.splash && welcome.splash.brand && welcome.splash.brand.logotype) {
-			this.loadLogoTypeFonts(welcome.splash.brand.logotype);
-		}
-		if (welcome.splash && welcome.splash.tagline && welcome.splash.tagline.font) {
-			application.loadFont(welcome.splash.tagline.font);
-		}
-		if (welcome.splash && welcome.splash.description && welcome.splash.description.font) {
-			application.loadFont(welcome.splash.description.font);
-		}
-	},
+	//
+	// querying methods
+	//
 
-	loadLogoTypeFonts: function(logotype) {
-		if (logotype.font) {
-			application.loadFont(logotype.font);
-		}
-
-		// load fonts for logotype names
-		//
-		if (logotype.names) {
-			let keys = Object.keys(logotype.names);
-			for (let i = 0; i < keys.length; i++) {
-				let key = keys[i];
-				if (logotype.names[key].font) {
-					application.loadFont(logotype.names[key].font);
-				}
-			}
-		}
+	isAnimating: function() {
+		return localStorage.getItem('animate') != null? localStorage.getItem('animate') != 'false': config.branding.header.buttons.animating;
 	},
 
 	//
 	// getting methods
 	//
 
-	getLogoTypeLength: function(logotype) {
-		let length = 0;
-
-		if (logotype.names) {
-			let keys = Object.keys(logotype.names);
-			for (let i = 0; i < keys.length; i++) {
-				let name = keys[i];
-				if (name && !name.startsWith('.')) {
-					length += name.length;
-				}
-			}
+	getAnimateIcon: function(animate) {
+		if (!animate) {
+			return '<i class="fa fa-play"></i>';
+		} else {
+			return '<i class="fa fa-stop"></i>';
 		}
+	},
 
-		return length;
+	getNextTheme: function(theme) {
+		switch (theme) {
+			case 'auto':
+				return 'light';
+			case 'light':
+				return 'dark';
+			case 'dark':
+				return 'auto';
+		}
+	},
+
+	getThemeIcon: function(theme) {
+		switch (theme) {
+			case 'light':
+				return '<i class="fa fa-sun"></i>';
+			case 'dark':
+				return '<i class="fa fa-moon"></i>';
+			default:
+				return '<i class="fa fa-circle-half-stroke"></i>';
+		}
 	},
 
 	//
-	// logo style setting methods
+	// setting methods
 	//
 
-	setLogoStyles: function(element, attributes) {
-		if (!attributes) {
-			return;
-		}
-		if (attributes.class) {
-			$(element).addClass(attributes.class);
-		}
-		if (attributes.size) {
-			$(element).addClass(attributes.size);
-		}
-		if (attributes.background) {
-			$(element).css('background', attributes.background);
-		}
-		if (attributes.transform) {
-			$(element).css('transform', attributes.transform);
-		}
-		if (attributes.margin) {
-			$(element).css('margin', attributes.margin);
-		}
-		if (attributes.margin_bottom) {
-			$(element).css('margin-bottom', attributes.margin_bottom);
-		}
+	setRibbonStyles(element, attributes) {
 
-		// set logo styles
+		// set ribbon styles
 		//
-		DomUtils.setBorderStyles($(element), attributes);
-		DomUtils.setImageStyles($(element).find('img'), attributes);
-	},
+		DomUtils.setTextStyles(element, attributes);
+		DomUtils.setBlockStyles(element, attributes);
+		DomUtils.setBorderStyles(element, attributes);
+		DomUtils.setBackgroundStyles(element, attributes);
 
-	setLogoTypeStyles: function(element, attributes) {
-		if ((this.getLogoTypeLength(attributes) < 8 || attributes.short) && attributes.short != false) {
-			$(element).addClass('short');
-		}
-		if (this.getLogoTypeLength(attributes) > 15 || attributes.long) {
-			$(element).addClass('long');
-		}
-		if (attributes.color) {
-			$(element).css('color', attributes.color);
+		if (attributes.corner) {
+			$(element).addClass(attributes.corner);
 		}
 
-		// set logotype text styles
-		//
-		DomUtils.setTextBlockStyles(element, attributes);
-
-		// set logotype name text styles
-		//
-		if (attributes.names) {
-			let elements = $(element).find('> span');
-			let keys = Object.keys(attributes.names);
-			for (let i = 0; i < keys.length; i++) {
-				DomUtils.setTextBlockStyles($(elements[i]), attributes.names[keys[i]]);
+		if (attributes.offset != undefined) {
+			switch (attributes.corner) {
+				case 'top left':
+					$(element).css('transform', 'translateX(-100%) rotate(-45deg) translate(50%, ' + attributes.offset + 'px)');
+					break;
+				case 'top right':
+					$(element).css('transform', 'rotate(45deg) translate(50%, ' + attributes.offset + 'px)');
+					break;
+				case 'bottom left':
+					$(element).css('transform', 'translate(-100%, 0px) rotate(45deg) translate(50%, ' + (-attributes.offset) + 'px)');
+					break;
+				case 'bottom right':
+					$(element).css('transform', 'rotate(-45deg) translate(50%, ' + (-attributes.offset) + 'px)');
 			}
 		}
 	},
 
-	//
-	// splash style setting methods
-	//
-
-	setSplashStyles: function(splash) {
-
-		// set splash styles
-		//
-		if (splash.width) {
-			this.$el.find('.splash').css('min-width', splash.width);
-		}
-		if (splash.brand) {
-			this.setSplashBrandStyles(splash.brand);
-		}
-		if (splash) {
-			DomUtils.setBackgroundStyles(this.$el.find('.splash'), splash);
-		}
-
-		// set splash text styles
-		//
-		if (splash.greeting) {
-			DomUtils.setTextBlockStyles(this.$el.find('.splash .greeting'), splash.greeting);
-		}
-		if (splash.tagline) {
-			DomUtils.setTextBlockStyles(this.$el.find('.splash .tagline'), splash.tagline);
-		}
-		if (splash.description) {
-			DomUtils.setTextBlockStyles(this.$el.find('.splash .description'), splash.description);
+	setRibbonsStyles: function(elements, attributes) {
+		for (let i = 0; i < elements.length; i++) {
+			this.setRibbonStyles(elements[i], attributes[i]);
 		}
 	},
 
-	setSplashBrandStyles: function(brand) {
+	setWelcomeStyles: function(element, attributes) {
 
-		// set splash logo styles
+		// set ribbon styles
 		//
-		if (brand.logo) {
-			this.setLogoStyles(this.$el.find('.splash .logo'), brand.logo);
+		if (attributes.ribbons) {
+			this.setRibbonsStyles($(element).find('.ribbon'), attributes.ribbons);
 		}
 
-		// set splash logotype styles
+		// set background styles
 		//
-		if (brand.logotype) {
-			this.setLogoTypeStyles(this.$el.find('.logotype'), brand.logotype);
+		if (config.branding.welcome) {
+			DomUtils.setBackgroundStyles($(element).find('.masthead'), attributes);
 		}
+		if (config.branding.welcome.masthead) {
+			DomUtils.setBackgroundStyles($(element).find('.carousel-cell')[0], attributes.masthead);
+		}
+		if (config.branding.welcome.overlay) {
+			DomUtils.setBackgroundStyles($(element).find('.masthead > .overlay'), attributes.overlay);
+		}
+	},
+
+	setAnimate: function(animate) {
+		if (animate) {
+			this.playAnimation();
+		} else {
+			this.pauseAnimation();
+		}
+
+		localStorage.setItem('animate', animate);
+	},
+
+	//
+	// animating methods
+	//
+
+	playAnimation: function() {
+		$('body').removeClass('paused');
+	},
+
+	pauseAnimation: function() {
+		$('body').addClass('paused');
 	},
 
 	//
@@ -324,11 +247,29 @@ export default BaseView.extend({
 	//
 
 	templateContext: function() {
+		let hasCarousel = config.branding.welcome.carousel != undefined;
+		let hasCarouselScroller = hasCarousel && config.branding.welcome.carousel.scroller != undefined;
+		let hasOverlay = config.branding.welcome.overlay != undefined;
+		let hasOverlayScroller = hasOverlay && config.branding.welcome.overlay.scroller != undefined;
+		let isAnimated = (hasCarouselScroller && config.branding.welcome.carousel.scroller.speed != 0) ||
+			(hasOverlayScroller && config.branding.welcome.overlay.scroller.speed != 0);
+		let theme = application.getTheme();
+
 		return {
-			defaults: config.defaults,
+			defaults: config.settings.defaults,
 			branding: config.branding,
-			filters: this.options.filters,
-			show_video: config.welcome && config.welcome.options.view_video && config.welcome.options.view_video.enabled
+
+			// animation button
+			//
+			show_animation: isAnimated && !Browser.isMobile(),
+			animate_icon: this.getAnimateIcon(this.isAnimating()),
+			animate_tooltip: isAnimated? 'Play' : 'Stop',
+
+			// theme button
+			//
+			show_theme: config.branding.header.buttons.show_theme,
+			theme: theme,
+			theme_icon: this.getThemeIcon(theme)
 		};
 	},
 
@@ -346,38 +287,36 @@ export default BaseView.extend({
 		//
 		if (config.branding.welcome) {
 
-			// set splash styles
+			// show splash
 			//
 			if (config.branding.welcome.splash) {
-				this.setSplashStyles(config.branding.welcome.splash);
+				if (config.branding.welcome.splash.columns == 2) {
+					this.showChildView('splash', new SplashTwoColumnView());
+				} else {
+					this.showChildView('splash', new SplashView());
+				}
 			}
 
-			// set background styles
+			// apply styling
 			//
-			if (config.branding.welcome) {
-				DomUtils.setBackgroundStyles(this.$el.find('.masthead'), config.branding.welcome);
-			}
-			if (config.branding.welcome.masthead) {
-				DomUtils.setBackgroundStyles(this.$el.find('.carousel-cell')[0], config.branding.welcome.masthead);
-			}
-			if (config.branding.welcome.overlay) {
-				DomUtils.setBackgroundStyles(this.$el.find('.masthead > .overlay'), config.branding.welcome.overlay);
-			}
-
-			// show splash carousel
-			//
-			window.setTimeout(() => {
-				this.showSplashCarousel();
-			}, 500);
+			this.setWelcomeStyles(this.$el, config.branding.welcome);
 
 			// show details
 			//
 			if (config.branding.welcome.template) {
-				this.showDetails(config.branding.welcome.template, () => {
+				this.showDetails('templates/' + config.branding.welcome.template, () => {
 					this.onLoad();
 				});
 			} else {
 				this.onLoad();
+			}
+
+			// show splash carousel
+			//
+			if (config.branding.welcome) {
+				window.setTimeout(() => {
+					this.showMastheadCarousel();
+				}, 500);
 			}
 		}
 
@@ -389,6 +328,12 @@ export default BaseView.extend({
 	onAttach: function() {
 		if (config.branding.welcome) {
 			this.showWelcome(config.branding.welcome);
+		}
+
+		if (this.isAnimating()) {
+			this.playAnimation();
+		} else {
+			this.pauseAnimation();
 		}
 	},
 
@@ -410,65 +355,39 @@ export default BaseView.extend({
 		}
 	},
 
-	showOverlayScroller: function(options) {
-		this.showChildView('masthead', new ScrollerView(options));
-	},
+	showMastheadCarousel: function(done) {
 
-	showCarouselScroller: function(options) {
-		this.showChildView('carousel', new ScrollerView(options));
-	},
-
-	showOverlay: function(element, overlay) {
-
-		// add overlay colors
+		// show top masthead carousel
 		//
-		if (overlay.far_color && overlay.near_color) {
-			$(element).css('background', 'linear-gradient(to bottom, ' + overlay.far_color + ' 0%, ' + overlay.near_color + ' 100%)');
-		} else if (overlay.background) {
-			$(element).css('background', overlay.background);
-		} else if (overlay.background_color) {
-			$(element).css('background-color', overlay.background_color);
-		} else if (overlay.background_image) {
-			$(element).css('background-image', 'url("' + overlay.background_image + '")');
-		}
+		if (config.branding.welcome.carousel && Browser.device == 'desktop') {
 
-		// set overlay opacity
-		//
-		if (overlay.opacity) {
-			$(element).css('opacity', overlay.opacity);
-		}
-	},
-
-	showDetails: function(address, done) {
-		fetch(address).then((response) => response.text()).then((text) => {
-
-			// display details
+			// temporarily remove scrollbars
 			//
-			this.showChildView('details', new BaseView({
-				className: 'details content',
-				template: template(text)
-			}));
+			this.$el.css('overflow', 'hidden');
 
-			// show details carousels
-			//
-			this.$el.find('.details .carousel').flickity({
-				autoPlay: 1000,
-				wrapAround: true,
-				pageDots: false,
-				prevNextButtons: false,
-				pauseAutoPlayOnHover: false
+			this.showCarouselCells(config.branding.welcome.carousel, () => {
+
+				// restore scrollbars
+				//
+				this.$el.css('overflow', '');
+
+				if (done) {
+					done();
+				}
 			});
-
-			done();
-		});
+		} else {
+			if (done) {
+				done();
+			}
+		}
 	},
 
 	showCarouselCells: function(carousel, done) {
-		fetch(carousel.template).then((response) => response.text()).then((text) => {
+		fetch('templates/' + carousel.template).then((response) => response.text()).then((text) => {
 
 			// apply template
 			//
-			text = template(text)(config.defaults);
+			text = template(text)(config.settings.defaults);
 
 			// show carousel content
 			//
@@ -512,52 +431,65 @@ export default BaseView.extend({
 		});
 	},
 
-	showSplashCarousel: function(done) {
-
-		// show top masthead carousel
-		//
-		if (config.branding.welcome.carousel && Browser.device == 'desktop') {
-
-			// temporarily remove scrollbars
-			//
-			this.$el.css('overflow', 'hidden');
-
-			this.showCarouselCells(config.branding.welcome.carousel, () => {
-
-				// restore scrollbars
-				//
-				this.$el.css('overflow', '');
-
-				if (done) {
-					done();
-				}
-			});
-		} else {
-			if (done) {
-				done();
-			}
-		}
-	},
-
 	showCrawler: function(options) {
 		this.showChildView('background', new CrawlerView(options));
 	},
 
-	onMouseOverBounceable: function(event) {
-		let $element = $(event.target);
+	showOverlayScroller: function(options) {
+		this.showChildView('masthead', new ScrollerView(options));
+	},
 
-		// add style
+	showCarouselScroller: function(options) {
+		this.showChildView('carousel', new ScrollerView(options));
+	},
+
+	showOverlay: function(element, overlay) {
+
+		// add overlay colors
 		//
-		$element.addClass('wobbling');
+		if (overlay.far_color && overlay.near_color) {
+			$(element).css('background', 'linear-gradient(to bottom, ' + overlay.far_color + ' 0%, ' + overlay.near_color + ' 100%)');
+		} else if (overlay.background) {
+			$(element).css('background', overlay.background);
+		} else if (overlay.background_color) {
+			$(element).css('background-color', overlay.background_color);
+		} else if (overlay.background_image) {
+			$(element).css('background-image', 'url("' + overlay.background_image + '")');
+		}
 
-		// wait for duration
+		// set overlay opacity
 		//
-		window.setTimeout(() => {
+		if (overlay.opacity) {
+			$(element).css('opacity', overlay.opacity);
+		}
+	},
 
-			// remove style
+	showDetails: function(address, done) {
+		fetch(address).then((response) => response.text()).then((text) => {
+
+			// display details
 			//
-			$element.removeClass('wobbling');
-		}, 300);
+			this.showChildView('details', new BaseView({
+				className: 'details content',
+				template: template(text)
+			}));
+
+			// show details carousels
+			//
+			this.showSectionCarousel(this.$el.find('.details .carousel'));
+
+			done();
+		});
+	},
+
+	showSectionCarousel: function(element) {
+		$(element).flickity({
+			autoPlay: $(element).hasClass('animated')? 1000 : false,
+			wrapAround: true,
+			pageDots: false,
+			prevNextButtons: false,
+			pauseAutoPlayOnHover: false
+		});
 	},
 
 	//
@@ -579,25 +511,63 @@ export default BaseView.extend({
 	// mouse event handling methods
 	//
 
-	onClickShowVideo: function() {
-		this.showVideo(config.welcome.options.view_video.path);
+	onMouseOverBounceable: function(event) {
+		let $element = $(event.target);
+
+		// add style
+		//
+		$element.addClass('wobbling');
+
+		// wait for duration
+		//
+		window.setTimeout(() => {
+
+			// remove style
+			//
+			$element.removeClass('wobbling');
+		}, 300);
 	},
 
-	onClickSignIn: function() {
-		application.signIn();
+	onClickAnimate: function() {
+		let isAnimating = !this.isAnimating();
+		let animateIcon = this.getAnimateIcon(isAnimating);
+		let animateTooltip = isAnimating? 'Stop' : 'Play';
+
+		// update icon
+		//
+		this.$el.find('#animate').empty().html(animateIcon);
+		this.$el.find('#animate').attr('data-original-title', animateTooltip);
+
+		// update currently displayed tooltip
+		//
+		$('.tooltip .tooltip-inner').text(animateTooltip);
+
+		// update view
+		//
+		this.setAnimate(isAnimating);
 	},
 
-	onClickSignUp: function() {
-		application.signUp();
-	},
+	onClickTheme: function() {
+		let theme = this.getNextTheme(application.getTheme());
+		let themeIcon = this.getThemeIcon(theme);
+		let themeTooltip = theme.toTitleCase() + ' Theme';
 
-	onClickSearch: function() {
-		let search = this.$el.find('.search input').val();
-		if (search && search != '') {
-			application.navigate('#search?query=' + encodeURIComponent(search), {
-				trigger: true
-			});
-		}
+		// update theme attributes
+		//
+		this.$el.find('#theme').empty().html(themeIcon);
+		this.$el.find('#theme').attr('data-original-title', themeTooltip);
+
+		// update currently displayed tooltip
+		//
+		$('.tooltip .tooltip-inner').text(themeTooltip);
+
+		// save value for later
+		//
+		localStorage.setItem('theme', theme);
+
+		// update view
+		//
+		application.setTheme(theme);
 	},
 
 	//

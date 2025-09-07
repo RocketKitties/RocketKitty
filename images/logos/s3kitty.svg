@@ -32,7 +32,7 @@
 
 	<rect width="480" height="480" x="16" y="16" rx="128" ry="128" fill="hsl(0, 100%, 85%)" stroke="hsl(0, 100%, 80%)" stroke-width="16" />
 
-	<g id="kitty" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
+	<g id="logo" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
 		<g id="bucket" transform="scale(0.9) translate(30, 10)" stroke="black" stroke-width="0">
 			<path style="fill:#F95428;" d="M454.246,63.473H57.759l50.548,434.584c0.925,7.947,7.657,13.941,15.658,13.941h132.038h132.038
 				c8.001,0,14.733-5.994,15.658-13.941L454.246,63.473z" />

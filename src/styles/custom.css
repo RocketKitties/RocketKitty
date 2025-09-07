@@ -18,8 +18,9 @@
 .kitties {
 	width: 100%;
 	max-width: 100% !important;
-	height: calc(100% - 50px);
+	max-height: calc(100% - 50px);
 	margin: 0 auto !important;
+	aspect-ratio: 1.5;
 
 	table {
 		width: 100%;
@@ -30,16 +31,16 @@
 			td {
 				position: relative;
 
-				p {
+				label {
 					position: absolute;
 					top: 0;
-					color: white
+					left: 10px;
 				}
 
 				img {
 					width: auto !important;
 					height: auto !important;
-					width: 50% !important
+					width: 66% !important
 				}
 			}
 		}
@@ -72,6 +73,69 @@
 	}
 }
 
+.kitty {
+	&.chats {
+		background: hsl(220, 50%, 50%) !important;
+	}
+	&.maps {
+		background: hsl(220, 66%, 66%) !important;
+	}
+	&.data {
+		background: hsl(90, 50%, 60%) !important;
+	}
+	&.photos {
+		background: hsl(40, 90%, 66%) !important;
+	}
+	&.coder {
+		background: hsl(25, 90%, 66%) !important;
+	}
+	&.files {
+		background: hsl(30, 25%, 50%) !important;
+	}
+	&.buckets {
+		background: hsl(10, 75%, 60%) !important;
+	}
+	&.dreams {
+		background: hsl(300, 33%, 50%) !important;
+	}
+	&.audio {
+		background: hsl(250, 25%, 50%) !important;
+	}
+	&.video {
+		background: hsl(-10, 90%, 66%) !important;
+	}
+
+	label {
+		color: white;
+	}
+}
+
+.kitties.carousel {
+	margin: 20px -50px !important;
+	width: calc(100% + 100px) !important;
+	height: 200px !important;
+	max-width: none !important;
+
+	.flickity-viewport {
+		height: 200px !important;
+
+		.carousel-cell {
+			width: 200px !important;
+			height: 200px !important;
+			/* border-radius: 25% !important; */
+			border-radius: 0 !important;
+			margin-right: 0 !important;
+			vertical-align: middle;
+			padding: 10px;
+
+			img {
+				width: auto !important;
+				height: auto !important;
+			}
+		}
+	}
+}
+
 /*
  * welcome page
  */
@@ -79,7 +143,7 @@
 .welcome {
 
 	.cloud {
-		filter: blur(3px) drop-shadow(rgba(0, 0, 0, 0.25) 5px 5px 10px);
+		filter: drop-shadow(rgba(0, 0, 0, 0.25) 5px 5px 10px);
 	}
 
 	.kitty.section {
@@ -116,6 +180,26 @@
 			}
 		}
 	}
+
+	.carousel {
+		.carousel-cell {
+			.caption {
+				img {
+					height: 50px;
+				}
+			}
+		}
+	}
+}
+
+body.paused {
+	.welcome {
+		.overlay {
+			.layer {
+				animation-play-state: paused
+			}
+		}
+	}
 }
 
 /*
@@ -125,8 +209,8 @@
 body:not(.dark) {
 	.welcome {
 		.overlay {
-			.moon, .stars {
-				display: none;
+			.moon, .stars, .lights {
+				visibility: hidden;
 			}
 		}
 	}
@@ -136,10 +220,10 @@ body:not(.dark) {
 	.welcome {
 		.overlay {
 			.sun {
-				display: none;
+				visibility: hidden;
 			}
 
-			.layer:not(.moon):not(.stars) img {
+			.layer:not(.moon):not(.stars):not(.lights) img {
 				filter: brightness(0.5);
 			}
 		}

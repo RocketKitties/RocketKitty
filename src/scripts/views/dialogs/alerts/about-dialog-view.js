@@ -171,7 +171,7 @@ export default ModalView.extend({
 	setTagLineStyles: function(tagline) {
 		if (tagline.font) {
 			this.$el.find('.tagline').css({
-				'font-family': config.fonts[tagline.font]['font-family']
+				'font-family': config.settings.fonts[tagline.font]['font-family']
 			});
 		}
 	},
@@ -179,7 +179,7 @@ export default ModalView.extend({
 	setDescriptionStyles: function(description) {
 		if (description.font) {
 			this.$el.find('.tagline').css({
-				'font-family': config.fonts[description.font]['font-family']
+				'font-family': config.settings.fonts[description.font]['font-family']
 			});
 		}
 	},
@@ -190,7 +190,7 @@ export default ModalView.extend({
 
 	templateContext: function() {
 		return {
-			defaults: config.defaults,
+			defaults: config.settings.defaults,
 			branding: config.branding
 		};
 	},

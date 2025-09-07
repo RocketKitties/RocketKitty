@@ -1,8 +1,8 @@
-<h1><i class="fa fa-users"></i>We Can Do It!</h1>
+<h1><i class="fa fa-hand-fist"></i>We Can Do It!</h1>
 
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-	<li><i class="fa fa-users"></i>We Can Do It!</li>
+	<li><i class="fa fa-hand-fist"></i>We Can Do It!</li>
 </ol>
 
 <div class="content">

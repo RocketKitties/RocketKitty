@@ -43,7 +43,7 @@
 
 	<rect width="480" height="480" x="16" y="16" rx="128" ry="128" fill="hsl(25, 100%, 66%)" stroke="hsl(25, 100%, 60%)" stroke-width="16" />
 
-	<g id="kitty" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
+	<g id="logo" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
 		<g id="computer" transform="translate(115, 30) scale(15)">
 			<rect x="2" y="2" width="20" height="12" fill="black" />
 			<path d="M2 0c-1.104 0-2 .896-2 2v15c0 1.104.896 2 2 2h20c1.104 0 2-.896 2-2v-15c0-1.104-.896-2-2-2h-20zm20 14h-20v-12h20v12zm-6.599 7c0 1.6 1.744 2.625 2.599 3h-12c.938-.333 2.599-1.317 2.599-3h6.802z" stroke="black" fill="white" />

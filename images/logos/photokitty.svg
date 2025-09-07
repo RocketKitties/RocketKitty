@@ -38,7 +38,7 @@
 
 	<rect width="480" height="480" x="16" y="16" rx="128" ry="128" fill="hsl(40, 90%, 66%)" stroke="hsl(40, 90%, 60%)" stroke-width="16" />
 
-	<g id="kitty" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
+	<g id="logo" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
 		<g id="frame">
 			<rect x="15" y="60" width="480" height="400" transform="translate(256, 256) scale(0.9) rotate(5) translate(-256, -256)" />
 		</g>

@@ -39,7 +39,7 @@
 
 	<rect width="480" height="480" x="16" y="16" rx="128" ry="128" fill="hsl(30, 50%, 50%)" stroke="hsl(30, 50%, 45%)" stroke-width="16" />
 
-	<g transform="translate(256 256) scale(0.9) translate(-256 -256)">
+	<g id="logo" transform="translate(256 256) scale(0.9) translate(-256 -256)">
 		<g id="folder-full" transform="translate(15, -35) scale(10, 10)">
 			<g class="folder-top" transform="translate(0 1.5)">
 				<path d="M 43.5,11.5 H 21 L 16.5,7 h -12 c -3,0 -3,0 -3,3 v 8 h 45 v -3.5 c 0,0 0,-3 -3,-3 z" />

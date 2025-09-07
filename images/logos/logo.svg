@@ -49,7 +49,7 @@
 
 	<rect width="480" height="480" x="16" y="16" rx="128" ry="128" fill="hsl(200, 100%, 66%)" stroke="hsl(200, 100%, 60%)" stroke-width="16" />
 
-	<g id="kitty" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
+	<g id="logo" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
 		<g id="flame" transform="translate(256, 256) scale(1, 0.5) translate(0, 180) translate(-256, -256)">
 			<g transform="translate(-196, 275) scale(1.25, 0.75) rotate(-45)">
 				<path style="fill:#FFCE54;" d="M17.25,493.132c3.625-10.188,8.344-23.141,13.625-36.563c19.875-50.642,30.407-65.782,34.938-70.298

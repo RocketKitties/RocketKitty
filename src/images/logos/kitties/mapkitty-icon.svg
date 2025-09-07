@@ -68,8 +68,6 @@
 		</style>
 	</defs>
 
-	<rect width="512" height="512" fill="hsl(220, 66%, 66%)" style="display:none" />
-
 	<g id="map" transform="translate(256 256) scale(1 -1) translate(-256 -256)">
 		<g transform="scale(22) translate(-0.35 -1029)">
 			<path class="outline" d="m8 1030.4 8 1v19l -8 -1z" fill="#b0b0c0"/>

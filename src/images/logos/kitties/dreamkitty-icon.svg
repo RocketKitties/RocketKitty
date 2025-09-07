@@ -45,8 +45,6 @@
 		</style>
 	</defs>
 
-	<rect width="512" height="512" fill="hsl(300, 33%, 50%)" style="display:none" />
-
 	<g id="moon" transform="scale(32) translate(-4, -4)">
 		<circle fill="black" stroke="black" stroke-width="2" vector-effect="non-scaling-stroke" cx="12" cy="12" r="7.5" />
 

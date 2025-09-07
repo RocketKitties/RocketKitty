@@ -70,7 +70,7 @@
 
 	<rect width="480" height="480" x="16" y="16" rx="128" ry="128" fill="hsl(220, 66%, 66%)" stroke="hsl(220, 66%, 60%)" stroke-width="16" />
 
-	<g id="kitty" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
+	<g id="logo" transform="translate(256, 256) scale(0.9) translate(0 -20) translate(0, 20) translate(-256, -256)">
 		<g id="map" transform="translate(256 256) scale(1 -1) translate(-256 -256)">
 			<g transform="scale(22) translate(-0.35 -1029)">
 				<path class="outline" d="m8 1030.4 8 1v19l -8 -1z" fill="#b0b0c0"/>

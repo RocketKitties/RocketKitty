@@ -1,237 +1,89 @@
-<div class="secondary colored section">
+<div class="primary colored section">
 	<div class="row">
 		<div class="col-sm-6">
-			<h2><img class="bounceable icon" src="images/logos/icon-simple.svg" />What is <%= application.name %>?</h2>
+			<h1><img class="bounceable icon" src="images/logos/clouds/rocketkitty-cloud-icon.svg" />What is <%= application.name %>?</h1>
 
 			<div class="well">
 				<b>rocket</b> (verb): to rise up swiftly <br />
 				<b>kitty</b> (noun): a collection of goods often made up of small contributions
 			</div>
-
-			<p><%= application.name %> is a complete family of self-hostable cloud-based data management and sharing platforms, each of which has been optimized for a particular application. </p>
 		</div>
 		<div class="col-sm-6">
-			<p><%= application.name %> can help you to launch your collection of files, code, music, data - your digital kitty - into the cloud and beyond. </p>
+			<p><%= application.name %> is a complete family of free, friendly, and self-hostable cloud-based sharing platforms. </p>
+			<p><%= application.name %> can help you to manage and share your files, conversations, photos, code, music, and data. </p> <p>Best of all, you can run it on your own server! </p>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2><i class="fa fa-circle-check"></i><%= application.name %> Advantages</h2>
 			<ul>
+				<li>Self-hostable (on-prem or in the cloud)</li>
 				<li>Free</li>
-				<li>Self-hostable</li>
 				<li>Easy to use and install</li>
 				<li>Platform independent</li>
+				<li>Open Source</li>
 				<li>Secure</li>
+				<li>Private</li>
 			</ul>
+		</div>
+		<div class="col-sm-6">
+			<div class="figure">
+				<a href="#welcome/host-it-yourself">
+					<img class="attention" src="images/logos/icon.svg" style="var(--primary-color)" />
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
 
 <div class="section">
 	<div class="row">
-		<div class="col-sm-9">
-			<h2><i class="fa fa-question-circle"></i>Which <%= application.name %> Is Right For You?</h2>
+		<div class="col-sm-6">
+			<h2><i class="fa fa-question-circle"></i>Why <%= application.name %>?</h2>
+			<p><%= application.name %> was created out of a growing frustration with the increasing dominance of excessively large corporations and institutions over our digital lives.   We should be able to manage our own data without worrying about someone else's  business models, policies, or survelliance practices.  We should be able to access our data without supporting companies that are engaged in unethical behavior.
+		</div>
+		<div class="col-sm-6">
+			<div class="figure">
+				<a href="#downloads">
+					<div style="margin-bottom:-30px"><i class="fa-solid fa-5x fa-question"></i></div>
+					<img src="images/logos/kitty-icon.svg" />
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2><i class="fa fa-dollar-sign"></i>It's Free!</h2>
+			<p><%= application.name %> is 100% completely free to <a href="#installation">download and run</a> on your own server. </p>
+		</div>
+		<div class="col-sm-6">
+			<div class="figure">
+				<img src="images/welcome/free-icon.svg" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2><i class="fa fa-solid fa-octagon"></i>Go Your Own Way</h2>
 			<ul>
-				<li>If you would like to manage and share files and messages, use <a href="http://datakitty.org" target="_blank">DataKitty</a>. </li>
-				<li>If you are a photographer and want to manage and share your photos, use <a href="http://photokitty.org" target="_blank">PhotoKitty</a>. </li>
-				<li>If you mainly want to communicate with friends, family or colleagues, use <a href="http://chatkitty.org" target="_blank">ChatKitty</a>. </li>
-				<li>If you need to manage geolocated data, like aerial drone photos, use <a href="http://mapkitty.org" target="_blank">MapKitty</a>. </li>
-				<li>If you want to manage and play music, podcasts, or audio, use <a href="http://musickitty.org" target="_blank">MusicKitty</a>. </li>
-				<li>If you are a software developer and want to manage your source code, use <a href="http://sourcekitty.org" target="_blank">SourceKitty</a>. </li>
-				<li>If you just want to manage your files and don't need the ability to exchange messages, use <a href="http://filekitty.org" target="_blank">FileKitty</a>. </li>
-				<li>If you want to experiment with AI generated images, use <a href="http://dreamkitty.org" target="_blank">DreamKitty</a>. </li>
-				<li>If you want to access data in S3 buckets, use <a href="http://s3kitty.org" target="_blank">S3Kitty</a>. </li>
+				<li>You don't need Google to manage and share your files.</li>
+				<li>You don't need Facebook to have group discussions. </li>
+				<li>You don't need WhatsApp to share direct messages. </li>
+				<li>You don't need iCloud or Spotify to listen to your music. </li>
 			</ul>
 		</div>
-		<div class="col-sm-3">
-			<div class="figure">
-				<a href="#features/self-hostable">
-					<img style="width:175px" src="images/logos/icon.svg" />
-				</a>
-				<div class="caption">Launch Me!</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(220, 100%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-message"></i>ChatKitty</h2>
-			<p><a href="http://chatkitty.org" target="_blank">ChatKitty</a> enables you to chat by discussion topic or by direct message so you can keep in touch with your friends, family, or colleagues. Exchange messages, news, files, documents, folders, images, code, music, and more. </p>	
-		</div>
 		<div class="col-sm-6">
 			<div class="figure">
-				<a href="http://chatkitty.org" target="_blank">
-					<div class="attention" style="background:hsl(220, 50%, 50%)">
-						<img src="images/logos/clouds/chatkitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption">
-					<a href="http://chatkitty.org" target="_blank">ChatKitty</a> - Your Conversations, Your Cloud
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(200, 100%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-map"></i>MapKitty</h2>
-			<p><a href="http://mapkitty.org" target="_blank">MapKitty</a> makes it easy to upload your geolocated images and videos, view them on a map, and share them with others. </p>
-		</div>
-		<div class="col-sm-6">
-			<div class="figure">
-				<a href="http://mapkitty.org" target="_blank">
-					<div class="attention" style="background:hsl(220, 66%, 66%)">
-						<img src="images/logos/clouds/mapkitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption">
-					<a href="http://mapkitty.org" target="_blank">MapKitty</a> - Your Geodata, Your Cloud
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(90, 100%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-database"></i>DataKitty</h2>
-			<p><a href="http://datakitty.org" target="_blank">DataKitty</a> combines the features of <a href="http://filekitty.org" target="_blank">FileKitty</a> and <a href="http://chatkitty.org" target="_blank">ChatKitty</a> together in one platform.  It allows you to share and manage your files and your conversations in one convenient place. </p>
-		</div>
-		<div class="col-sm-6">
-			<div class="figure">
-				<a href="http://datakitty.org" target="_blank">
-					<div class="attention" style="background:hsl(90, 50%, 60%)">
-						<img src="images/logos/clouds/datakitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption">
-					<a href="http://datakitty.org" target="_blank">DataKitty</a> - Your Data, Your Cloud
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(45, 100%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-image"></i>PhotoKitty</h2>
-			<p><a href="http://photokitty.org" target="_blank">PhotoKitty</a> is a cloud-based photo management and sharing system that makes it easy to manage, view, backup and share your photos. </p>
-		</div>
-		<div class="col-sm-6">
-			<div class="figure">
-				<a href="http://photokitty.org" target="_blank">
-					<div class="attention" style="background:hsl(40, 90%, 60%)">
-						<img src="images/logos/clouds/photokitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption">
-					<a href="http://photokitty.org" target="_blank">PhotoKitty</a> - Your Photos, Your Cloud
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(30, 100%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-code"></i>SourceKitty</h2>
-			<p><a href="http://sourcekitty.org" target="_blank">SourceKitty</a> allows you to easily upload, manage, and share your source code. It include a code editor with syntax highlighting for most popular programming languages. </p>
-		</div>
-		<div class="col-sm-6">
-			<div class="figure">
-				<a href="http://sourcekitty.org" target="_blank">
-					<div class="attention" style="background:hsl(25, 100%, 66%)">
-						<img src="images/logos/clouds/sourcekitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption">
-					<a href="http://sourcekitty.org" target="_blank">SourceKitty</a> - Your Code, Your Cloud
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(10, 50%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-folder"></i>FileKitty</h2>
-			<p><a href="http://filekitty.org" target="_blank">FileKitty</a> makes it easy for you to upload, manage, and share your files. FileKitty includes viewers for PDF documents, sounds, and videos so you can easily view and share your files. </p>
-		</div>
-		<div class="col-sm-6">
-			<div class="figure">
-				<a href="http://filekitty.org" target="_blank">
-					<div class="attention" style="background:hsl(30, 25%, 50%)">
-						<img src="images/logos/clouds/filekitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption">
-					<a href="http://filekitty.org" target="_blank">FileKitty</a> - Your Files, Your Cloud
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(0, 100%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-bucket"></i>S3Kitty</h2>
-			<p><a href="http://s3kitty.org" target="_blank">S3Kitty</a> allows you to use your own S3 buckets with an easy to use web interface.  It combines the capacity of S3 with the familiar look and feel of your desktop or mobile OS. S3Kitty makes S3 easy. </p>
-		</div>
-		<div class="col-sm-6">
-			<div class="figure">
-				<a href="http://s3kitty.org" target="_blank">
-					<div class="attention" style="background:hsl(0, 100%, 75%)">
-						<img src="images/logos/clouds/s3kitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption"><a href="http://s3kitty.org" target="_blank">S3Kitty</a> - Your Buckets, Your Cloud</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(300, 75%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-moon"></i>DreamKitty</h2>
-			<p><a href="http://dreamkitty.org" target="_blank">DreamKitty</a> is a cloud-based AI image generation platform. Using simple text prompts, you can visualize virtually anything that you can think of. Let DreamKitty help to you explore and share your dreams. </p>
-		</div>
-		<div class="col-sm-6">
-			<div class="figure">
-				<a href="http://dreamkitty.org" target="_blank">
-					<div class="attention" style="background:hsl(300, 33%, 50%)">
-						<img src="images/logos/clouds/dreamkitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption">
-					<a href="http://dreamkitty.org" target="_blank">DreamKitty</a> - Your AI Images, Your Cloud
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="kitty section" style2="background:hsla(250, 100%, 75%, 25%)">
-	<div class="row">
-		<div class="col-sm-6">
-			<h2><i class="fa fa-music"></i>MusicKitty</h2>
-			<p>You love your music. Now you can love the platform that you use to play, manage, and share your music. <a href="http://musickitty.org" target="_blank">MusicKitty</a> lets you run and customize your own music server. </p>
-		</div>
-		<div class="col-sm-6">
-			<div class="figure">
-				<a href="http://musickitty.org" target="_blank">
-					<div class="attention" style="background:hsl(250, 33%, 60%)">
-						<img src="images/logos/clouds/musickitty-cloud-icon.svg" />
-					</div>
-				</a>
-				<div class="caption">
-					<a href="http://musickitty.org" target="_blank">MusicKitty</a> - Your Music, Your Cloud
-				</div>
+				<img src="images/welcome/stop-sign.svg" />
 			</div>
 		</div>
 	</div>
@@ -240,8 +92,138 @@
 <div class="section">
 	<div class="row">
 		<div class="col-sm-6">
-			<h2><i class="fa fa-tools"></i>Take Back Control</h2>
-			<p>You no longer need to give up control over your data just to get access to a technology platform. By running your own <%= application.name %>, you control the platform and your data. Join the <a href="#features/self-hostable">host it yourself (HIY)</a> movement and take back control over your (digital) life! </p>
+			<h2><i class="fa fa-users"></i>Connect and Share</h2>
+			<p>Connect and share with friends, colleagues, and family. Share files, chat messages, group discussions, photos, audio, and more.</p>
+		</div>
+		<div class="col-sm-6">
+			<div class="figure">
+				<div class="people">
+					<img width="125px" style="margin-bottom:-150px" src="images/welcome/people/person-icon.svg" />
+					<img width="125px" style="margin-bottom:-150px" src="images/welcome/people/person-icon.svg" />
+					<img width="175px" src="images/welcome/people/person-icon.svg" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<h2><i class="fa fa-smile"></i>Easy To Get Started!</h2>
+	<p><%= application.name %> consists of a <a href="#platforms">set of pre-configured platforms</a> which are already set up for particular tasks.  For example, sharing files or sharing photos or sharing music.  This makes getting started as easy as possible. </p>
+
+	<div class="icons kitties carousel">
+		<div class="carousel-cell chats kitty">
+			<a href="http://chatkitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/chatkitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>ChatKitty</label>
+		</div>
+
+		<div class="carousel-cell maps kitty">
+			<a href="http://mapkitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/mapkitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>MapKitty</label>
+		</div>
+
+		<div class="carousel-cell data kitty">
+			<a href="http://datakitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/datakitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>DataKitty</label>
+		</div>
+
+		<div class="carousel-cell photos kitty">
+			<a href="http://photokitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/photokitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>PhotoKitty</label>
+		</div>
+
+		<div class="carousel-cell coder kitty">
+			<a href="http://sourcekitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/sourcekitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>SourceKitty</label>
+		</div>
+
+		<div class="carousel-cell files kitty">
+			<a href="http://filekitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/filekitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>FileKitty</label>
+		</div>
+
+		<div class="carousel-cell buckets kitty">
+			<a href="http://s3kitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/s3kitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>S3Kitty</label>
+		</div>
+
+		<div class="carousel-cell video kitty">
+			<a href="http://videokitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/videokitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>VideoKitty</label>
+		</div>
+
+		<div class="carousel-cell dreams kitty">
+			<a href="http://dreamkitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/dreamkitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>DreamKitty</label>
+		</div>
+
+		<div class="carousel-cell audio kitty">
+			<a href="http://musickitty.org" target="_blank">
+				<div class="bounceable logo">
+					<img class="carousel-cell-image" src="images/logos/clouds/musickitty-cloud-icon.svg" />
+				</div>
+			</a>
+			<label>MusicKitty</label>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2><i class="fa fa-flag-usa"></i>Support Independence</h2>
+			<p>By migrating your data to your own cloud, you are making a statement that you care about values like independence, diversity, and choice and that you stand against monopolization and abuse of power.  
+			</p>
+		</div>
+		<div class="col-sm-6">
+			<div class="figure">
+				<img src="images/welcome/liberty.svg" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2><i class="fa fa-hand-fist"></i>Take Back Control</h2>
+			<p>You no longer need to give up control over your data just to get access to a technology platform. By running your own <%= application.name %>, you control the platform and your data. Join the <a href="#welcome/host-it-yourself">host it yourself (HIY)</a> movement and take back control over your (digital) life! </p>
 		</div>
 		<div class="col-sm-6">
 			<div class="figure">

@@ -45,7 +45,7 @@ export default FooterView.extend({
 						<% if (branding.page.footer.brand.logotype.names) { %>
 						<% let names = branding.page.footer.brand.logotype.names; %>
 						<% let keys = Object.keys(names); %>
-						<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(' ', '&nbsp') %></span><% } %>
+						<% for (let i = 0; i < keys.length; i++) { %><% let key = keys[i]; %><span><%= key.replace(/ /g, '&nbsp') %></span><% } %>
 						<% } %>
 					</div>
 					<% } %>
@@ -117,12 +117,14 @@ export default FooterView.extend({
 	//
 
 	setLogoStyles: function(element, attributes) {
-		if (attributes.background) {
-			$(element).css('background', attributes.background);
+		if (!attributes) {
+			return;
 		}
 
+		DomUtils.setBlockStyles(element, attributes);
 		DomUtils.setBorderStyles(element, attributes);
 		DomUtils.setImageStyles(element, attributes);
+		DomUtils.setBackgroundStyles(element, attributes);
 
 		// allow image clipping
 		//

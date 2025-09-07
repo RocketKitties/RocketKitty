@@ -36,8 +36,6 @@
 		</style>
 	</defs>
 
-	<rect width="512" height="512" fill="lightgrey" style="display:none" />
-
 	<g transform="scale(1, 1.35)">
 		<rect x="0" y="0" width="512" height="64" fill="#75bd21"/>
 		<rect x="0" y="64" width="512" height="64" fill="#ffc728"/>

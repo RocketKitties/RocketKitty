@@ -42,8 +42,6 @@
 		</style>
 	</defs>
 
-	<rect width="512" height="512" fill="red" style="display:none" />
-
 	<g id="frame">
 		<rect x="31" y="56" width="450" height="400" transform="translate(256, 256) scale(0.9) rotate(10) translate(-256, -256)" />
 	</g>

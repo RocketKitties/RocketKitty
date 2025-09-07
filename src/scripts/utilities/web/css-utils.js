@@ -95,6 +95,22 @@ export default {
 		return style;
 	},
 
+	addNamedCssRule: function(name, selector, attributes) {
+
+		// add dictionary of styles
+		//
+		if (!document.custom_styles) {
+			document.custom_styles = [];
+		}
+
+		// if not found, add new style
+		//
+		if (!document.custom_styles.includes(name)) {
+			this.addCssRule(selector, attributes);
+			document.custom_styles.push(name);
+		}
+	},
+
 	addCssRules: function(cssRules) {
 		let keys = Object.keys(cssRules);
 		for (let i = 0; i < keys.length; i++) {

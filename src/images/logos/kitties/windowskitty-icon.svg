@@ -36,8 +36,6 @@
 		</style>
 	</defs>
 
-	<rect width="512" height="512" fill="lightgrey" style="display:none" />
-
 	<g id="windows-logo" transform="translate(24, 24) scale(20)">
 		<path fill="#f3f3f3" d="M0 0h23v23H0z" />
 		<path fill="#f35325" d="M1 1h10v10H1z" />
